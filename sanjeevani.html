@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SANJEEVANI — One Nation, Complete Medication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --saffron: #FF6B35;
+  --saffron-light: #FF8C5A;
+  --saffron-dark: #E55A25;
+  --medgreen: #138808;
+  --medgreen-light: #1AAD0A;
+  --medgreen-dark: #0D6006;
+  --pearl: #F8F9FA;
+  --navy: #0A0F1E;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --info: #3b82f6;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 68px;
+  --topbar-height: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+  --transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-theme="dark"] {
+  --pearl: #0d1117;
+  --navy: #f0f6ff;
+  --white: #161b22;
+  --gray-50: #0d1117;
+  --gray-100: #161b22;
+  --gray-200: #21262d;
+  --gray-300: #30363d;
+  --gray-400: #484f58;
+  --gray-500: #6e7681;
+  --gray-600: #8b949e;
+  --gray-700: #b1bac4;
+  --gray-800: #c9d1d9;
+  --gray-900: #e6edf3;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--pearl);color:var(--gray-900);line-height:1.6;overflow-x:hidden;transition:background 0.3s,color 0.3s}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--gray-100)}
+::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gray-400)}
+
+/* GLASS */
+.glass{backdrop-filter:blur(12px);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12)}
+[data-theme="dark"] .glass{background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.08)}
+.glass-card{background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.6);border-radius:var(--radius-lg);box-shadow:var(--shadow-md)}
+[data-theme="dark"] .glass-card{background:rgba(22,27,34,0.85);border:1px solid rgba(255,255,255,0.08)}
+
+/* APP SHELL */
+#app{display:flex;min-height:100vh}
+#sidebar{position:fixed;top:0;left:0;height:100vh;width:var(--sidebar-width);background:var(--white);border-right:1px solid var(--gray-200);display:flex;flex-direction:column;z-index:100;transition:var(--transition);overflow:hidden}
+#sidebar.collapsed{width:var(--sidebar-collapsed)}
+#main-content{margin-left:var(--sidebar-width);flex:1;transition:margin-left 0.22s cubic-bezier(0.4,0,0.2,1);min-height:100vh;display:flex;flex-direction:column}
+#sidebar.collapsed~#main-content,body.sidebar-collapsed #main-content{margin-left:var(--sidebar-collapsed)}
+
+/* SIDEBAR */
+.sidebar-logo{padding:1.25rem 1.25rem 1rem;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid var(--gray-200);min-height:var(--topbar-height)}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF9933,#FFFFFF,#138808)}
+.logo-icon svg{width:20px;height:20px;fill:white}
+.logo-text{overflow:hidden;white-space:nowrap}
+.logo-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--gray-900);letter-spacing:-0.02em}
+.logo-sub{font-size:0.68rem;color:var(--gray-500);font-weight:500;letter-spacing:0.04em;text-transform:uppercase}
+.sidebar-toggle{width:28px;height:28px;border:none;background:var(--gray-100);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);margin-left:auto;flex-shrink:0;transition:var(--transition)}
+.sidebar-toggle:hover{background:var(--gray-200)}
+.sidebar-nav{flex:1;overflow-y:auto;padding:0.75rem 0;overflow-x:hidden}
+.nav-section-label{font-size:0.68rem;font-weight:600;color:var(--gray-400);letter-spacing:0.08em;text-transform:uppercase;padding:0.75rem 1.25rem 0.25rem;white-space:nowrap;overflow:hidden}
+#sidebar.collapsed .nav-section-label{opacity:0}
+.nav-item{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 1rem;margin:0.1rem 0.5rem;border-radius:var(--radius-md);cursor:pointer;transition:var(--transition);color:var(--gray-600);font-size:0.875rem;font-weight:500;text-decoration:none;white-space:nowrap;overflow:hidden;position:relative}
+.nav-item:hover{background:var(--gray-100);color:var(--gray-900)}
+.nav-item.active{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(19,136,8,0.08));color:var(--saffron);font-weight:600}
+.nav-item.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:0 2px 2px 0;background:var(--saffron)}
+.nav-icon{width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.nav-badge{margin-left:auto;background:var(--saffron);color:white;font-size:0.65rem;font-weight:700;padding:1px 6px;border-radius:10px;flex-shrink:0}
+#sidebar.collapsed .nav-badge,.sidebar-nav-text{transition:opacity 0.15s}
+#sidebar.collapsed .sidebar-nav-text,#sidebar.collapsed .nav-badge,#sidebar.collapsed .nav-section-label{opacity:0;width:0;overflow:hidden}
+.sidebar-footer{padding:0.75rem 1rem;border-top:1px solid var(--gray-200)}
+.user-mini{display:flex;align-items:center;gap:0.75rem;padding:0.5rem;border-radius:var(--radius-md);cursor:pointer;transition:var(--transition);overflow:hidden}
+.user-mini:hover{background:var(--gray-100)}
+
+/* TOPBAR */
+#topbar{height:var(--topbar-height);background:var(--white);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:50}
+.topbar-search{flex:1;max-width:380px;position:relative}
+.topbar-search input{width:100%;padding:0.5rem 0.75rem 0.5rem 2.25rem;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.875rem;color:var(--gray-900);outline:none;transition:var(--transition)}
+.topbar-search input:focus{background:var(--white);border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,53,0.1)}
+.topbar-search-icon{position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:var(--gray-400);pointer-events:none}
+.topbar-spacer{flex:1}
+.topbar-actions{display:flex;align-items:center;gap:0.5rem}
+.icon-btn{width:38px;height:38px;border:none;background:transparent;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:var(--transition);position:relative}
+.icon-btn:hover{background:var(--gray-100);color:var(--gray-900)}
+.notif-dot{position:absolute;top:7px;right:7px;width:8px;height:8px;background:var(--saffron);border-radius:50%;border:2px solid var(--white)}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:white;cursor:pointer;flex-shrink:0}
+
+/* PAGE CONTENT */
+.page-content{flex:1;padding:1.75rem 2rem;background:var(--pearl)}
+.page-header{margin-bottom:1.75rem}
+.page-title{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gray-900);letter-spacing:-0.02em}
+.page-subtitle{font-size:0.875rem;color:var(--gray-500);margin-top:0.25rem}
+
+/* VIEWS */
+.view{display:none;animation:fadeIn 0.3s ease}
+.view.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* CARDS */
+.card{background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);padding:1.25rem;box-shadow:var(--shadow-sm);transition:var(--transition)}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.card-saffron{border-left:3px solid var(--saffron)}
+.card-green{border-left:3px solid var(--medgreen)}
+.card-title{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem}
+
+/* GRID */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media(max-width:1200px){.grid-3{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.grid-3,.grid-2,.grid-4{grid-template-columns:1fr}#sidebar{transform:translateX(-100%)}#main-content{margin-left:0!important}#sidebar.mobile-open{transform:translateX(0)}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.875rem;font-weight:600;border-radius:var(--radius-md);cursor:pointer;border:none;transition:var(--transition);white-space:nowrap;text-decoration:none}
+.btn-sm{padding:0.375rem 0.75rem;font-size:0.8rem}
+.btn-md{padding:0.5rem 1.125rem}
+.btn-lg{padding:0.7rem 1.5rem;font-size:0.95rem}
+.btn-primary{background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:white}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.35)}
+.btn-secondary{background:transparent;border:1.5px solid var(--gray-300);color:var(--gray-700)}
+.btn-secondary:hover{border-color:var(--saffron);color:var(--saffron);background:rgba(255,107,53,0.04)}
+.btn-ghost{background:transparent;color:var(--gray-600)}
+.btn-ghost:hover{background:var(--gray-100);color:var(--gray-900)}
+.btn-danger{background:var(--danger);color:white}
+.btn-green{background:linear-gradient(135deg,var(--medgreen),var(--medgreen-dark));color:white}
+.btn-green:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(19,136,8,0.35)}
+.btn-loading{opacity:0.7;pointer-events:none}
+.btn-loading::after{content:'';width:14px;height:14px;border:2px solid rgba(255,255,255,0.4);border-top-color:white;border-radius:50%;animation:spin 0.6s linear infinite;margin-left:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.72rem;font-weight:600;letter-spacing:0.02em}
+.badge-success{background:rgba(16,185,129,0.12);color:#059669}
+.badge-warning{background:rgba(245,158,11,0.12);color:#b45309}
+.badge-danger{background:rgba(239,68,68,0.12);color:#dc2626}
+.badge-info{background:rgba(59,130,246,0.12);color:#1d4ed8}
+.badge-saffron{background:rgba(255,107,53,0.12);color:var(--saffron-dark)}
+.badge-green{background:rgba(19,136,8,0.12);color:var(--medgreen-dark)}
+.badge-gray{background:var(--gray-100);color:var(--gray-600)}
+
+/* FORM ELEMENTS */
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:0.8rem;font-weight:600;color:var(--gray-700);margin-bottom:0.4rem}
+.form-input{width:100%;padding:0.6rem 0.875rem;background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.875rem;color:var(--gray-900);outline:none;transition:var(--transition);font-family:'Inter',sans-serif}
+.form-input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,53,0.1)}
+.form-input.error{border-color:var(--danger);box-shadow:0 0 0 3px rgba(239,68,68,0.1)}
+select.form-input{cursor:pointer}
+textarea.form-input{min-height:100px;resize:vertical}
+
+/* SKELETON */
+.skeleton{background:linear-gradient(90deg,var(--gray-200) 25%,var(--gray-100) 50%,var(--gray-200) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:var(--radius-sm)}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* HEALTH METER */
+.health-meter{position:relative;display:inline-flex;align-items:center;justify-content:center}
+.health-meter svg{transform:rotate(-130deg)}
+.health-meter-value{position:absolute;text-align:center}
+.health-meter-num{font-family:'Space Grotesk',sans-serif;font-size:1.75rem;font-weight:700;color:var(--gray-900)}
+.health-meter-label{font-size:0.7rem;font-weight:600;color:var(--gray-500);letter-spacing:0.05em;text-transform:uppercase}
+
+/* STATS */
+.stat-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem;border:1px solid var(--gray-200);box-shadow:var(--shadow-sm)}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--gray-900);line-height:1.1}
+.stat-label{font-size:0.8rem;color:var(--gray-500);margin-top:0.25rem;font-weight:500}
+.stat-delta{font-size:0.78rem;font-weight:600;margin-top:0.5rem}
+.stat-delta.up{color:var(--success)}
+.stat-delta.down{color:var(--danger)}
+.stat-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--gray-200);margin-bottom:1.25rem;gap:0.25rem}
+.tab{padding:0.6rem 1rem;font-size:0.875rem;font-weight:500;color:var(--gray-500);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:var(--transition);border-radius:var(--radius-sm) var(--radius-sm) 0 0;white-space:nowrap}
+.tab:hover{color:var(--gray-900);background:var(--gray-50)}
+.tab.active{color:var(--saffron);border-bottom-color:var(--saffron);font-weight:600}
+
+/* TAB PANELS */
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeIn 0.2s ease}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity 0.2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--white);border-radius:var(--radius-xl);padding:2rem;max-width:540px;width:100%;box-shadow:var(--shadow-lg);transform:scale(0.95) translateY(20px);transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),opacity 0.2s;opacity:0;max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal{transform:scale(1) translateY(0);opacity:1}
+.modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;gap:1rem}
+.modal-title{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--gray-900)}
+
+/* ACTIVITY FEED */
+.activity-item{display:flex;align-items:flex-start;gap:0.875rem;padding:0.75rem 0;border-bottom:1px solid var(--gray-100)}
+.activity-item:last-child{border-bottom:none}
+.activity-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.activity-content{flex:1;min-width:0}
+.activity-title{font-size:0.875rem;font-weight:500;color:var(--gray-900)}
+.activity-sub{font-size:0.78rem;color:var(--gray-500);margin-top:0.1rem}
+.activity-time{font-size:0.72rem;color:var(--gray-400);flex-shrink:0;margin-top:2px}
+
+/* QUICK ACTIONS */
+.quick-action{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;background:var(--gray-50);border-radius:var(--radius-lg);border:1.5px solid var(--gray-200);cursor:pointer;transition:var(--transition);text-align:center}
+.quick-action:hover{border-color:var(--saffron);background:rgba(255,107,53,0.04);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.quick-action-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.quick-action-label{font-size:0.78rem;font-weight:600;color:var(--gray-700)}
+
+/* SCANNER */
+.scanner-view{background:var(--gray-900);border-radius:var(--radius-xl);overflow:hidden;position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;max-width:500px;margin:0 auto}
+.scan-frame{position:absolute;width:220px;height:220px;pointer-events:none}
+.scan-frame::before,.scan-frame::after{content:'';position:absolute;width:40px;height:40px;border-color:var(--medgreen-light);border-style:solid}
+.scan-frame::before{top:0;left:0;border-width:3px 0 0 3px;border-radius:4px 0 0 0}
+.scan-frame::after{bottom:0;right:0;border-width:0 3px 3px 0;border-radius:0 0 4px 0}
+.scan-frame-tr,.scan-frame-bl{position:absolute;width:40px;height:40px;border-color:var(--medgreen-light);border-style:solid}
+.scan-frame-tr{top:0;right:0;border-width:3px 3px 0 0;border-radius:0 4px 0 0}
+.scan-frame-bl{bottom:0;left:0;border-width:0 0 3px 3px;border-radius:0 0 0 4px}
+.scan-line{position:absolute;width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--medgreen-light),transparent);animation:scanLine 2s ease-in-out infinite}
+@keyframes scanLine{0%,100%{top:20%;opacity:0.5}50%{top:80%;opacity:1}}
+.scanner-pulse{width:80px;height:80px;border-radius:50%;background:rgba(19,136,8,0.15);display:flex;align-items:center;justify-content:center;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(19,136,8,0.3)}50%{transform:scale(1.05);box-shadow:0 0 0 20px rgba(19,136,8,0)}}
+
+/* RISK BADGE */
+.risk-low{background:rgba(16,185,129,0.15);color:#047857;border:1px solid rgba(16,185,129,0.3)}
+.risk-medium{background:rgba(245,158,11,0.15);color:#92400e;border:1px solid rgba(245,158,11,0.3)}
+.risk-high{background:rgba(239,68,68,0.15);color:#991b1b;border:1px solid rgba(239,68,68,0.3)}
+
+/* AI DOCTOR */
+.symptom-tag{display:inline-flex;align-items:center;gap:0.375rem;padding:0.3rem 0.75rem;background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.25);border-radius:20px;font-size:0.8rem;color:var(--saffron-dark);font-weight:500;cursor:pointer;transition:var(--transition)}
+.symptom-tag:hover,.symptom-tag.selected{background:var(--saffron);color:white;border-color:var(--saffron)}
+.symptom-tag .remove{display:none;font-size:0.7rem}
+.symptom-tag.selected .remove{display:inline}
+.condition-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1rem;margin-bottom:0.75rem;transition:var(--transition)}
+.condition-card:hover{border-color:var(--saffron);box-shadow:var(--shadow-sm)}
+.confidence-bar{height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden;margin-top:0.5rem}
+.confidence-fill{height:100%;border-radius:3px;transition:width 1s cubic-bezier(0.4,0,0.2,1)}
+
+/* BLOCKCHAIN */
+.tx-row{display:flex;align-items:center;gap:1rem;padding:0.875rem 0;border-bottom:1px solid var(--gray-100)}
+.tx-row:last-child{border-bottom:none}
+.tx-icon{width:38px;height:38px;border-radius:10px;background:rgba(19,136,8,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.tx-hash{font-family:'Space Grotesk',monospace;font-size:0.78rem;color:var(--info);background:rgba(59,130,246,0.08);padding:0.2rem 0.5rem;border-radius:4px;cursor:pointer}
+.tx-hash:hover{text-decoration:underline}
+.verified-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(16,185,129,0.12);color:#059669;font-size:0.72rem;font-weight:600;padding:0.2rem 0.5rem;border-radius:10px}
+
+/* CHATBOT */
+#chatbot-btn{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,107,53,0.4);z-index:150;transition:var(--transition);animation:chatPulse 3s ease-in-out infinite}
+@keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(255,107,53,0.4)}50%{box-shadow:0 4px 30px rgba(255,107,53,0.6),0 0 0 8px rgba(255,107,53,0.08)}}
+#chatbot-btn:hover{transform:scale(1.08)}
+#chatbot-panel{position:fixed;bottom:5.5rem;right:2rem;width:380px;height:560px;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);border:1px solid var(--gray-200);z-index:150;display:flex;flex-direction:column;transform:scale(0.9) translateY(20px);transform-origin:bottom right;opacity:0;pointer-events:none;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),opacity 0.2s}
+#chatbot-panel.open{opacity:1;pointer-events:all;transform:scale(1) translateY(0)}
+.chat-header{padding:1rem 1.25rem;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:0.75rem}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--medgreen));display:flex;align-items:center;justify-content:center;font-size:1rem}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:0.75rem}
+.chat-msg{max-width:78%;animation:msgIn 0.2s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.user{align-self:flex-end}
+.chat-msg.bot{align-self:flex-start}
+.chat-bubble{padding:0.6rem 0.875rem;border-radius:12px;font-size:0.84rem;line-height:1.5}
+.chat-msg.user .chat-bubble{background:var(--saffron);color:white;border-radius:12px 12px 2px 12px}
+.chat-msg.bot .chat-bubble{background:var(--gray-100);color:var(--gray-900);border-radius:12px 12px 12px 2px}
+.chat-time{font-size:0.65rem;color:var(--gray-400);margin-top:0.2rem;text-align:right}
+.chat-msg.bot .chat-time{text-align:left}
+.typing-dots{display:flex;gap:4px;padding:0.75rem 0.875rem;background:var(--gray-100);border-radius:12px;width:56px;align-items:center}
+.typing-dot{width:7px;height:7px;background:var(--gray-400);border-radius:50%;animation:typingBounce 1.2s ease-in-out infinite}
+.typing-dot:nth-child(2){animation-delay:0.15s}
+.typing-dot:nth-child(3){animation-delay:0.3s}
+@keyframes typingBounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+.chat-input-area{padding:0.875rem;border-top:1px solid var(--gray-200);display:flex;gap:0.5rem;align-items:flex-end}
+.chat-input{flex:1;padding:0.5rem 0.75rem;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:20px;font-size:0.84rem;outline:none;transition:var(--transition);font-family:'Inter',sans-serif;resize:none;max-height:100px;line-height:1.4}
+.chat-input:focus{background:var(--white);border-color:var(--saffron)}
+.quick-chips{display:flex;gap:0.375rem;flex-wrap:wrap;padding:0 1rem 0.5rem}
+.quick-chip{padding:0.25rem 0.625rem;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:16px;font-size:0.72rem;color:var(--saffron-dark);cursor:pointer;transition:var(--transition);font-weight:500}
+.quick-chip:hover{background:var(--saffron);color:white;border-color:var(--saffron)}
+
+/* LANDING PAGE */
+#landing{display:none}
+#landing.active{display:block}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0A0F1E 0%,#0f1f0f 50%,#1a0a05 100%)}
+.hero-particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:floatParticle linear infinite;opacity:0.15}
+@keyframes floatParticle{0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-100px) rotate(360deg)}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:0.35rem 1rem;font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-weight:500}
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:700;color:white;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem}
+.hero-title .accent{background:linear-gradient(135deg,var(--saffron),#FF9933);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 2rem;line-height:1.7}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.hero-tricolour{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 0%,#FF9933 33.33%,#ffffff 33.33%,#ffffff 66.66%,#138808 66.66%,#138808 100%)}
+.stats-bar{background:var(--white);padding:3rem 2rem;border-bottom:1px solid var(--gray-200)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:900px;margin:0 auto;text-align:center}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:2.5rem}}
+.stat-num-big{font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:700;background:linear-gradient(135deg,var(--saffron),var(--medgreen));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-desc{font-size:0.85rem;color:var(--gray-500);margin-top:0.25rem;font-weight:500}
+.features-section{padding:5rem 2rem;background:var(--pearl)}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-tag{display:inline-block;background:rgba(255,107,53,0.1);color:var(--saffron-dark);padding:0.3rem 0.875rem;border-radius:20px;font-size:0.8rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:0.04em}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:700;color:var(--gray-900);letter-spacing:-0.02em}
+.section-sub{font-size:1rem;color:var(--gray-500);max-width:520px;margin:0.75rem auto 0;line-height:1.7}
+.feature-card{background:var(--white);border-radius:var(--radius-xl);padding:1.75rem;border:1px solid var(--gray-200);box-shadow:var(--shadow-sm);transition:var(--transition)}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(255,107,53,0.2)}
+.feature-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+.feature-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:0.5rem}
+.feature-desc{font-size:0.875rem;color:var(--gray-500);line-height:1.65}
+.how-section{padding:5rem 2rem;background:var(--white)}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1000px;margin:0 auto;position:relative}
+@media(max-width:900px){.steps-row{grid-template-columns:repeat(2,1fr)}}
+.steps-row::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--saffron),var(--medgreen));z-index:0}
+@media(max-width:900px){.steps-row::before{display:none}}
+.step-card{text-align:center;position:relative;z-index:1}
+.step-num{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:white;font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 4px 16px rgba(255,107,53,0.35)}
+.step-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:var(--gray-900);margin-bottom:0.5rem}
+.step-desc{font-size:0.84rem;color:var(--gray-500);line-height:1.6}
+.testimonials-section{padding:5rem 2rem;background:var(--pearl)}
+.testimonial-card{background:var(--white);border-radius:var(--radius-xl);padding:1.75rem;border:1px solid var(--gray-200)}
+.testimonial-quote{font-size:0.9rem;color:var(--gray-700);line-height:1.7;margin-bottom:1.25rem;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:0.75rem}
+.test-name{font-weight:600;font-size:0.875rem;color:var(--gray-900)}
+.test-role{font-size:0.78rem;color:var(--gray-500)}
+.cta-section{padding:5rem 2rem;background:linear-gradient(135deg,#0A0F1E,#0f1f0f);text-align:center}
+.landing-footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:1000px;margin:0 auto 2rem}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:white;margin-bottom:0.5rem}
+.footer-tagline{font-size:0.84rem;color:rgba(255,255,255,0.4);margin-bottom:1rem;line-height:1.6}
+.footer-heading{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.875rem}
+.footer-link{display:block;font-size:0.84rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.5rem;transition:var(--transition)}
+.footer-link:hover{color:white}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.3);max-width:1000px;margin:0 auto}
+.footer-tricolour{height:3px;background:linear-gradient(90deg,#FF9933 0%,#FF9933 33.33%,rgba(255,255,255,0.3) 33.33%,rgba(255,255,255,0.3) 66.66%,#138808 66.66%,#138808 100%);margin-top:1.5rem}
+.max-w{max-width:1100px;margin:0 auto}
+
+/* APPOINTMENT CARDS */
+.appt-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1rem;display:flex;gap:1rem;align-items:center;transition:var(--transition)}
+.appt-card:hover{border-color:var(--saffron);box-shadow:var(--shadow-sm)}
+.appt-date{background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:white;border-radius:10px;padding:0.5rem 0.875rem;text-align:center;flex-shrink:0}
+.appt-day{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;line-height:1}
+.appt-month{font-size:0.72rem;font-weight:600;text-transform:uppercase;opacity:0.85;letter-spacing:0.04em}
+
+/* NOTIFICATION CARDS */
+.notif-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:0.875rem 1rem;display:flex;gap:0.75rem;align-items:flex-start;position:relative;transition:var(--transition)}
+.notif-close{position:absolute;top:0.5rem;right:0.5rem;background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:1rem;line-height:1;padding:2px;transition:var(--transition)}
+.notif-close:hover{color:var(--gray-700)}
+
+/* MEDICINE CARD */
+.med-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1rem;display:flex;align-items:center;gap:0.875rem;transition:var(--transition);cursor:pointer}
+.med-card:hover{border-color:var(--saffron);box-shadow:var(--shadow-sm)}
+.med-icon{width:40px;height:40px;background:rgba(19,136,8,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+
+/* DISCLAIMER */
+.disclaimer{background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.2);border-radius:var(--radius-md);padding:0.75rem 1rem;font-size:0.78rem;color:var(--gray-600);display:flex;gap:0.5rem;line-height:1.5}
+.disclaimer-icon{flex-shrink:0;font-size:0.9rem;margin-top:1px}
+
+/* SOS */
+.sos-overlay{position:fixed;inset:0;background:rgba(220,38,38,0.97);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.sos-overlay.active{opacity:1;pointer-events:all}
+.sos-content{text-align:center;color:white;padding:2rem;max-width:480px}
+.sos-icon{font-size:4rem;animation:sosFlash 0.8s ease-in-out infinite}
+@keyframes sosFlash{0%,100%{opacity:1}50%{opacity:0.4}}
+.sos-title{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;margin:1rem 0 0.5rem}
+.sos-sub{font-size:1rem;opacity:0.85;margin-bottom:2rem;line-height:1.6}
+.sos-number{font-family:'Space Grotesk',monospace;font-size:3rem;font-weight:700;letter-spacing:0.05em;display:block;margin-bottom:0.5rem}
+
+/* ADMIN */
+.data-table{width:100%;border-collapse:collapse;font-size:0.84rem}
+.data-table th{background:var(--gray-50);padding:0.75rem 1rem;text-align:left;font-size:0.75rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--gray-200);white-space:nowrap}
+.data-table td{padding:0.875rem 1rem;border-bottom:1px solid var(--gray-100);color:var(--gray-800);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--gray-50)}
+.table-wrap{background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);overflow:hidden;box-shadow:var(--shadow-sm);overflow-x:auto}
+
+/* SEVERITY SLIDER */
+.severity-slider{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--medgreen) 0%,var(--warning) 50%,var(--danger) 100%);outline:none;cursor:pointer}
+.severity-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:white;border:2px solid var(--saffron);box-shadow:0 2px 6px rgba(0,0,0,0.15);cursor:pointer}
+
+/* PROGRESS */
+.progress-bar{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--saffron),var(--medgreen));transition:width 1s cubic-bezier(0.4,0,0.2,1)}
+
+/* UPLOAD ZONE */
+.upload-zone{border:2px dashed var(--gray-300);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;cursor:pointer;transition:var(--transition);background:var(--gray-50)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--saffron);background:rgba(255,107,53,0.04)}
+.upload-icon{font-size:2.5rem;margin-bottom:1rem;opacity:0.5}
+
+/* CHARTS (CSS-only sparklines) */
+.mini-chart{display:flex;align-items:flex-end;gap:3px;height:40px}
+.mini-bar{flex:1;background:linear-gradient(0deg,var(--saffron),var(--saffron-light));border-radius:2px 2px 0 0;opacity:0.7;transition:var(--transition)}
+.mini-bar:hover{opacity:1}
+
+/* TOGGLE SWITCH */
+.toggle{position:relative;display:inline-block;width:44px;height:24px}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--gray-300);border-radius:12px;cursor:pointer;transition:var(--transition)}
+.toggle-slider::before{content:'';position:absolute;width:18px;height:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:var(--transition);box-shadow:var(--shadow-sm)}
+.toggle input:checked~.toggle-slider{background:var(--medgreen)}
+.toggle input:checked~.toggle-slider::before{transform:translateX(20px)}
+
+/* DARK MODE TOGGLE */
+.dark-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-md);cursor:pointer;border:none;background:transparent;color:var(--gray-600);font-size:1.1rem;transition:var(--transition)}
+.dark-toggle:hover{background:var(--gray-100);color:var(--gray-900)}
+
+/* NOTIFICATION DROPDOWN */
+.notif-dropdown{position:absolute;top:calc(100% + 8px);right:0;width:340px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);box-shadow:var(--shadow-lg);z-index:200;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all 0.2s}
+.notif-dropdown.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.notif-header-drop{padding:0.875rem 1rem;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center}
+.notif-item{padding:0.875rem 1rem;border-bottom:1px solid var(--gray-100);display:flex;gap:0.75rem;cursor:pointer;transition:var(--transition)}
+.notif-item:hover{background:var(--gray-50)}
+.notif-item:last-child{border-bottom:none}
+.notif-item-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing" class="active">
+  <section class="hero">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🇮🇳 Made for Bharat &nbsp;·&nbsp; Blockchain Secured &nbsp;·&nbsp; AI Powered</div>
+      <h1 class="hero-title">
+        <span class="accent">SANJEEVANI</span><br/>
+        One Nation,<br/>Complete Medication
+      </h1>
+      <p class="hero-sub">India's first AI-powered healthcare platform with blockchain-verified medical records, intelligent symptom analysis, and real-time medicine authentication.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary btn-lg" onclick="enterApp()">Get Started Free →</button>
+        <button class="btn btn-lg" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white" onclick="watchDemo()">▶ Watch Demo</button>
+      </div>
+    </div>
+    <div class="hero-tricolour"></div>
+  </section>
+
+  <section class="stats-bar">
+    <div class="stats-grid">
+      <div><div class="stat-num-big" id="cnt1">0</div><div class="stat-desc">Medicines Verified</div></div>
+      <div><div class="stat-num-big" id="cnt2">0</div><div class="stat-desc">Active Users</div></div>
+      <div><div class="stat-num-big" id="cnt3">0%</div><div class="stat-desc">Uptime Guaranteed</div></div>
+      <div><div class="stat-num-big" id="cnt4">0%</div><div class="stat-desc">Blockchain Secured</div></div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-header">
+      <div class="section-tag">FEATURES</div>
+      <h2 class="section-title">Healthcare, reimagined for India</h2>
+      <p class="section-sub">Every feature built with the patient at the centre — accessible, intelligent, and trustworthy.</p>
+    </div>
+    <div class="max-w">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+        <div class="feature-card" style="border-top:3px solid var(--saffron)">
+          <div class="feature-icon-wrap" style="background:rgba(255,107,53,0.1)">🤖</div>
+          <div class="feature-title">AI Doctor</div>
+          <div class="feature-desc">Describe your symptoms and get instant AI-powered preliminary analysis with specialist recommendations. Never a substitute for a real doctor — but always a smart first step.</div>
+        </div>
+        <div class="feature-card" style="border-top:3px solid var(--medgreen)">
+          <div class="feature-icon-wrap" style="background:rgba(19,136,8,0.1)">💊</div>
+          <div class="feature-title">Medicine Scanner</div>
+          <div class="feature-desc">Scan any medicine barcode to instantly verify authenticity, check interactions, understand side effects, and find affordable generic alternatives.</div>
+        </div>
+        <div class="feature-card" style="border-top:3px solid #3b82f6">
+          <div class="feature-icon-wrap" style="background:rgba(59,130,246,0.1)">🔗</div>
+          <div class="feature-title">Blockchain Records</div>
+          <div class="feature-desc">Your medical records stored immutably on Polygon blockchain. Only you control access. Every action is logged, verified, and tamper-proof.</div>
+        </div>
+        <div class="feature-card" style="border-top:3px solid #8b5cf6">
+          <div class="feature-icon-wrap" style="background:rgba(139,92,246,0.1)">👨‍👩‍👧</div>
+          <div class="feature-title">Family Health Hub</div>
+          <div class="feature-desc">Manage health profiles for your entire family. Track medicines, appointments, and health scores for every member from a single dashboard.</div>
+        </div>
+        <div class="feature-card" style="border-top:3px solid #f59e0b">
+          <div class="feature-icon-wrap" style="background:rgba(245,158,11,0.1)">🎙️</div>
+          <div class="feature-title">Voice Assistant</div>
+          <div class="feature-desc">Ask health questions in your language. SANJEEVANI understands Hindi, Tamil, Bengali, and 10+ Indian languages. Healthcare that speaks your tongue.</div>
+        </div>
+        <div class="feature-card" style="border-top:3px solid #ef4444">
+          <div class="feature-icon-wrap" style="background:rgba(239,68,68,0.1)">🆘</div>
+          <div class="feature-title">Emergency SOS</div>
+          <div class="feature-desc">One-tap emergency alert with location sharing. Instantly connects to nearest hospitals and notifies your emergency contacts. Every second matters.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="section-header">
+      <div class="section-tag">HOW IT WORKS</div>
+      <h2 class="section-title">From concern to clarity in 4 steps</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Create your profile</div>
+        <div class="step-desc">Secure signup with OTP verification. Your health data stays private, encrypted, and under your control.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Scan or describe</div>
+        <div class="step-desc">Scan a medicine barcode or describe your symptoms to the AI Doctor using text or voice.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Get AI insights</div>
+        <div class="step-desc">Receive instant, personalised health insights, medicine details, and specialist recommendations.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">Records on-chain</div>
+        <div class="step-desc">Every scan and diagnosis is logged to the Polygon blockchain — your permanent, verifiable health history.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="section-header">
+      <div class="section-tag">TESTIMONIALS</div>
+      <h2 class="section-title">Trusted by patients and doctors</h2>
+    </div>
+    <div class="max-w">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"SANJEEVANI helped me identify a dangerous drug interaction before I took both medicines. The AI warning was clear and saved me a trip to the emergency room."</div>
+          <div class="testimonial-author"><div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">PS</div><div><div class="test-name">Priya Sharma</div><div class="test-role">Patient, Bengaluru</div></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"As a doctor, I can now share verified prescriptions with patients digitally. The blockchain logging gives my patients — and me — complete confidence in record integrity."</div>
+          <div class="testimonial-author"><div class="avatar" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">DM</div><div><div class="test-name">Dr. Rajesh Mehta</div><div class="test-role">Cardiologist, Mumbai</div></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"I live in a village 50km from the nearest hospital. SANJEEVANI's AI symptom checker told me my mother needed urgent attention — that early warning made all the difference."</div>
+          <div class="testimonial-author"><div class="avatar" style="background:linear-gradient(135deg,#10b981,#059669)">RK</div><div><div class="test-name">Ramesh Kumar</div><div class="test-role">Farmer, Madhya Pradesh</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:white;letter-spacing:-0.02em;margin-bottom:1rem">Join India's health revolution</h2>
+    <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7">Over 5 lakh Indians already trust SANJEEVANI for their healthcare needs. Start for free — no credit card required.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:440px;margin:0 auto">
+      <input type="email" placeholder="Enter your email" class="form-input" style="flex:1;min-width:200px;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white"/>
+      <button class="btn btn-primary btn-md" onclick="enterApp()">Get Early Access</button>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">SANJEEVANI</div>
+        <div class="footer-tagline">One Nation, Complete Medication.<br/>AI-powered healthcare for every Indian.</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.25)">🇮🇳 Built with ❤️ in India</div>
+      </div>
+      <div>
+        <div class="footer-heading">Platform</div>
+        <a class="footer-link" href="#">AI Doctor</a>
+        <a class="footer-link" href="#">Medicine Scanner</a>
+        <a class="footer-link" href="#">Blockchain Records</a>
+        <a class="footer-link" href="#">Family Health</a>
+      </div>
+      <div>
+        <div class="footer-heading">Support</div>
+        <a class="footer-link" href="#">Help Centre</a>
+        <a class="footer-link" href="#">Privacy Policy</a>
+        <a class="footer-link" href="#">Terms of Service</a>
+        <a class="footer-link" href="#">Contact Us</a>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <a class="footer-link" href="#">About Us</a>
+        <a class="footer-link" href="#">Blog</a>
+        <a class="footer-link" href="#">Careers</a>
+        <a class="footer-link" href="#">Press</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2024 SANJEEVANI Health Technologies Pvt. Ltd. | CIN: U85110MH2024PTC000001</div>
+    <div class="footer-tricolour"></div>
+  </footer>
+</div>
+
+<!-- APP SHELL -->
+<div id="app" style="display:none">
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L8 6H4v4L2 12l2 2v4h4l4 4 4-4h4v-4l2-2-2-2V6h-4L12 2z"/><rect x="10" y="9" width="4" height="6" rx="1"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
+    </div>
+    <div class="logo-text">
+      <div class="logo-title">SANJEEVANI</div>
+      <div class="logo-sub">Complete Medication</div>
+    </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3 4h10v1.5H3zm0 3h10v1.5H3zm0 3h10v1.5H3z"/></svg>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Main</div>
+    <a class="nav-item active" onclick="showView('dashboard')">
+      <div class="nav-icon">🏥</div>
+      <span class="sidebar-nav-text">Dashboard</span>
+    </a>
+    <a class="nav-item" onclick="showView('scanner')">
+      <div class="nav-icon">📷</div>
+      <span class="sidebar-nav-text">Medicine Scanner</span>
+    </a>
+    <a class="nav-item" onclick="showView('aidoctor')">
+      <div class="nav-icon">🤖</div>
+      <span class="sidebar-nav-text">AI Doctor</span>
+      <div class="nav-badge">AI</div>
+    </a>
+    <a class="nav-item" onclick="showView('reports')">
+      <div class="nav-icon">📋</div>
+      <span class="sidebar-nav-text">Health Reports</span>
+    </a>
+    <a class="nav-item" onclick="showView('appointments')">
+      <div class="nav-icon">📅</div>
+      <span class="sidebar-nav-text">Appointments</span>
+      <div class="nav-badge">3</div>
+    </a>
+    <div class="nav-section-label">Records</div>
+    <a class="nav-item" onclick="showView('blockchain')">
+      <div class="nav-icon">🔗</div>
+      <span class="sidebar-nav-text">Blockchain Logs</span>
+    </a>
+    <a class="nav-item" onclick="showView('prescriptions')">
+      <div class="nav-icon">💊</div>
+      <span class="sidebar-nav-text">Prescriptions</span>
+    </a>
+    <div class="nav-section-label">Admin</div>
+    <a class="nav-item" onclick="showView('admin')">
+      <div class="nav-icon">⚙️</div>
+      <span class="sidebar-nav-text">Admin Panel</span>
+    </a>
+    <a class="nav-item" onclick="showView('settings')">
+      <div class="nav-icon">🔧</div>
+      <span class="sidebar-nav-text">Settings</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-mini" onclick="showView('settings')">
+      <div class="avatar" style="width:32px;height:32px;font-size:0.75rem">AP</div>
+      <div style="overflow:hidden;flex:1" class="sidebar-nav-text">
+        <div style="font-size:0.8rem;font-weight:600;color:var(--gray-900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Arjun Patel</div>
+        <div style="font-size:0.72rem;color:var(--gray-500)">Patient</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <div class="topbar-search">
+      <svg class="topbar-search-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="7" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Search medicines, doctors, records…" onkeydown="if(event.key==='Enter')showView('scanner')"/>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-actions">
+      <button class="dark-toggle" onclick="toggleDark()" title="Toggle dark mode" id="darkBtn">🌙</button>
+      <div style="position:relative">
+        <button class="icon-btn" onclick="toggleNotif()" title="Notifications">
+          🔔<div class="notif-dot"></div>
+        </button>
+        <div class="notif-dropdown" id="notifDrop">
+          <div class="notif-header-drop">
+            <span style="font-weight:600;font-size:0.875rem">Notifications</span>
+            <span style="font-size:0.78rem;color:var(--saffron);cursor:pointer">Mark all read</span>
+          </div>
+          <div class="notif-item">
+            <div class="notif-item-icon" style="background:rgba(255,107,53,0.1)">💊</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Refill reminder: Metformin</div><div style="font-size:0.75rem;color:var(--gray-500);margin-top:2px">5 days supply remaining</div></div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-item-icon" style="background:rgba(59,130,246,0.1)">📅</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Appointment tomorrow</div><div style="font-size:0.75rem;color:var(--gray-500);margin-top:2px">Dr. Mehta at 10:00 AM</div></div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-item-icon" style="background:rgba(16,185,129,0.1)">🔗</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Record verified on-chain</div><div style="font-size:0.75rem;color:var(--gray-500);margin-top:2px">Blood report · Block #4,821,093</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="avatar" onclick="showView('settings')">AP</div>
+    </div>
+  </header>
+
+  <!-- VIEWS -->
+
+  <!-- DASHBOARD -->
+  <div class="view active page-content" id="view-dashboard">
+    <div class="page-header">
+      <h1 class="page-title" id="welcomeMsg">Good morning, Arjun 👋</h1>
+      <div class="page-subtitle" id="liveClock"></div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid-4" style="margin-bottom:1.5rem">
+      <div class="quick-action" onclick="showView('scanner')">
+        <div class="quick-action-icon" style="background:rgba(19,136,8,0.1)">📷</div>
+        <div class="quick-action-label">Scan Medicine</div>
+      </div>
+      <div class="quick-action" onclick="showView('aidoctor')">
+        <div class="quick-action-icon" style="background:rgba(255,107,53,0.1)">🤖</div>
+        <div class="quick-action-label">AI Doctor</div>
+      </div>
+      <div class="quick-action" onclick="showView('reports')">
+        <div class="quick-action-icon" style="background:rgba(59,130,246,0.1)">📤</div>
+        <div class="quick-action-label">Upload Report</div>
+      </div>
+      <div class="quick-action" onclick="showView('appointments')">
+        <div class="quick-action-icon" style="background:rgba(139,92,246,0.1)">📅</div>
+        <div class="quick-action-label">Book Appointment</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <!-- Health Score -->
+      <div class="card card-saffron">
+        <div class="card-title">Health Score</div>
+        <div style="display:flex;align-items:center;gap:1.5rem">
+          <div class="health-meter">
+            <svg width="120" height="80" viewBox="0 0 120 80">
+              <circle cx="60" cy="65" r="50" fill="none" stroke="var(--gray-200)" stroke-width="10" stroke-dasharray="220 360" stroke-linecap="round"/>
+              <circle cx="60" cy="65" r="50" fill="none" stroke="url(#healthGrad)" stroke-width="10" stroke-dasharray="0 360" stroke-linecap="round" id="healthArc" style="transition:stroke-dasharray 1.5s cubic-bezier(0.4,0,0.2,1)"/>
+              <defs><linearGradient id="healthGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF6B35"/><stop offset="100%" stop-color="#138808"/></linearGradient></defs>
+            </svg>
+            <div class="health-meter-value" style="top:45%">
+              <div class="health-meter-num" id="healthNum">0</div>
+              <div class="health-meter-label">/ 100</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:1.25rem;font-weight:700;color:var(--medgreen)">Good</div>
+            <div style="font-size:0.8rem;color:var(--gray-500);margin-top:0.25rem;line-height:1.5">Last updated<br/>today at 6:00 AM</div>
+            <div class="badge badge-success" style="margin-top:0.5rem">↑ +3 this week</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insights -->
+      <div class="card card-green" style="grid-column:span 2">
+        <div class="card-title" style="display:flex;justify-content:space-between;align-items:center">AI Insights <span class="badge badge-saffron">✨ Live</span></div>
+        <div id="aiInsights">
+          <div style="display:flex;gap:0.75rem;padding:0.75rem;background:rgba(19,136,8,0.05);border-radius:var(--radius-md);margin-bottom:0.5rem">
+            <div style="font-size:1.1rem;flex-shrink:0">💧</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Hydration alert</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Your average water intake has dropped 20% this week. Aim for 2.5L daily given your activity level.</div></div>
+          </div>
+          <div style="display:flex;gap:0.75rem;padding:0.75rem;background:rgba(255,107,53,0.05);border-radius:var(--radius-md);margin-bottom:0.5rem">
+            <div style="font-size:1.1rem;flex-shrink:0">💊</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Medication adherence</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">You've taken Metformin consistently for 14 days. Excellent adherence! Continue to maintain your HbA1c levels.</div></div>
+          </div>
+          <div style="display:flex;gap:0.75rem;padding:0.75rem;background:rgba(59,130,246,0.05);border-radius:var(--radius-md)">
+            <div style="font-size:1.1rem;flex-shrink:0">🏃</div>
+            <div><div style="font-size:0.84rem;font-weight:500;color:var(--gray-900)">Activity recommendation</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Based on your recent blood reports, a 30-minute brisk walk daily could significantly improve your insulin sensitivity.</div></div>
+          </div>
+        </div>
+        <div class="disclaimer" style="margin-top:0.75rem">
+          <span class="disclaimer-icon">ℹ️</span>
+          <span>This is for informational purposes only and is not a substitute for professional medical advice.</span>
+        </div>
+      </div>
+
+      <!-- Upcoming Appointments -->
+      <div class="card">
+        <div class="card-title">Upcoming Appointments</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div class="appt-card">
+            <div class="appt-date"><div class="appt-day">14</div><div class="appt-month">Dec</div></div>
+            <div style="flex:1"><div style="font-size:0.875rem;font-weight:600;color:var(--gray-900)">Dr. Rajesh Mehta</div><div style="font-size:0.78rem;color:var(--gray-500)">Cardiologist · 10:00 AM</div><div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px">Fortis Hospital, Mumbai</div></div>
+            <div class="badge badge-success">Confirmed</div>
+          </div>
+          <div class="appt-card">
+            <div class="appt-date" style="background:linear-gradient(135deg,var(--info),#1d4ed8)"><div class="appt-day">19</div><div class="appt-month">Dec</div></div>
+            <div style="flex:1"><div style="font-size:0.875rem;font-weight:600;color:var(--gray-900)">Dr. Sunita Rao</div><div style="font-size:0.78rem;color:var(--gray-500)">Endocrinologist · 3:30 PM</div><div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px">Apollo Hospital, Mumbai</div></div>
+            <div class="badge badge-warning">Pending</div>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:0.875rem" onclick="showView('appointments')">View all appointments</button>
+      </div>
+
+      <!-- Recent Scans -->
+      <div class="card">
+        <div class="card-title">Recent Medicine Scans</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div class="med-card" onclick="showView('scanner')">
+            <div class="med-icon">💊</div>
+            <div style="flex:1"><div style="font-size:0.84rem;font-weight:600;color:var(--gray-900)">Metformin 500mg</div><div style="font-size:0.75rem;color:var(--gray-500)">Sun Pharma · 2 days ago</div></div>
+            <div class="badge risk-low">LOW</div>
+          </div>
+          <div class="med-card" onclick="showView('scanner')">
+            <div class="med-icon">🩺</div>
+            <div style="flex:1"><div style="font-size:0.84rem;font-weight:600;color:var(--gray-900)">Aspirin 75mg</div><div style="font-size:0.75rem;color:var(--gray-500)">Bayer · 5 days ago</div></div>
+            <div class="badge risk-low">LOW</div>
+          </div>
+          <div class="med-card" onclick="showView('scanner')">
+            <div class="med-icon">💉</div>
+            <div style="flex:1"><div style="font-size:0.84rem;font-weight:600;color:var(--gray-900)">Amoxicillin 500mg</div><div style="font-size:0.75rem;color:var(--gray-500)">Cipla · 1 week ago</div></div>
+            <div class="badge risk-medium">MEDIUM</div>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:0.875rem" onclick="showView('scanner')">Scan new medicine</button>
+      </div>
+
+      <!-- Blockchain Log Widget -->
+      <div class="card card-green">
+        <div class="card-title" style="display:flex;justify-content:space-between">Blockchain Logs <span class="verified-badge">✓ Verified</span></div>
+        <div id="bcLogs">
+          <div class="tx-row">
+            <div class="tx-icon">📋</div>
+            <div style="flex:1;min-width:0"><div style="font-size:0.8rem;font-weight:500;color:var(--gray-900)">Report uploaded</div><div class="tx-hash" onclick="showVerifyModal('0x7f3a...b91c')">0x7f3a...b91c</div></div>
+            <div><div class="verified-badge">✓</div><div style="font-size:0.7rem;color:var(--gray-400);text-align:right;margin-top:2px">#4,821,093</div></div>
+          </div>
+          <div class="tx-row">
+            <div class="tx-icon">💊</div>
+            <div style="flex:1;min-width:0"><div style="font-size:0.8rem;font-weight:500;color:var(--gray-900)">Medicine scanned</div><div class="tx-hash" onclick="showVerifyModal('0x2c9e...f44a')">0x2c9e...f44a</div></div>
+            <div><div class="verified-badge">✓</div><div style="font-size:0.7rem;color:var(--gray-400);text-align:right;margin-top:2px">#4,820,891</div></div>
+          </div>
+          <div class="tx-row">
+            <div class="tx-icon">🏥</div>
+            <div style="flex:1;min-width:0"><div style="font-size:0.8rem;font-weight:500;color:var(--gray-900)">Diagnosis logged</div><div class="tx-hash" onclick="showVerifyModal('0xd45b...772f')">0xd45b...772f</div></div>
+            <div><div class="verified-badge">✓</div><div style="font-size:0.7rem;color:var(--gray-400);text-align:right;margin-top:2px">#4,820,744</div></div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:0.5rem" onclick="showView('blockchain')">View full log →</button>
+      </div>
+
+      <!-- Activity Feed -->
+      <div class="card" style="grid-column:span 2">
+        <div class="card-title">Recent Activity</div>
+        <div class="activity-item">
+          <div class="activity-icon" style="background:rgba(19,136,8,0.1)">✅</div>
+          <div class="activity-content"><div class="activity-title">Metformin 500mg scanned & verified</div><div class="activity-sub">Authenticity score: 98/100 · No dangerous interactions found</div></div>
+          <div class="activity-time">2h ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon" style="background:rgba(59,130,246,0.1)">🤖</div>
+          <div class="activity-content"><div class="activity-title">AI Symptom Analysis completed</div><div class="activity-sub">3 possible conditions identified · Specialist recommendation sent</div></div>
+          <div class="activity-time">Yesterday</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon" style="background:rgba(139,92,246,0.1)">📤</div>
+          <div class="activity-content"><div class="activity-title">Blood report uploaded to IPFS</div><div class="activity-sub">CID: Qm7xK...p9Nf · Stored on Polygon blockchain</div></div>
+          <div class="activity-time">2 days ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon" style="background:rgba(245,158,11,0.1)">📅</div>
+          <div class="activity-content"><div class="activity-title">Appointment booked</div><div class="activity-sub">Dr. Rajesh Mehta · Cardiologist · Dec 14 at 10:00 AM</div></div>
+          <div class="activity-time">3 days ago</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div style="margin-top:1.25rem">
+      <div class="card-title" style="margin-bottom:0.75rem">Alerts & Notifications</div>
+      <div style="display:flex;flex-direction:column;gap:0.625rem" id="notifCards">
+        <div class="notif-card">
+          <div style="font-size:1.25rem">⚠️</div>
+          <div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:var(--gray-900)">Medication refill needed</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Metformin 500mg — 5 days of supply remaining. Schedule a refill with your pharmacist.</div></div>
+          <button class="notif-close" onclick="this.closest('.notif-card').remove()">✕</button>
+        </div>
+        <div class="notif-card">
+          <div style="font-size:1.25rem">🩺</div>
+          <div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:var(--gray-900)">Annual health check-up due</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Your last full-body check-up was 11 months ago. Book one soon for preventive care.</div></div>
+          <button class="notif-close" onclick="this.closest('.notif-card').remove()">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCANNER VIEW -->
+  <div class="view page-content" id="view-scanner">
+    <div class="page-header">
+      <h1 class="page-title">Medicine Scanner</h1>
+      <div class="page-subtitle">Scan a barcode or enter a medicine name to verify authenticity and get detailed information</div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab(this,'scan-cam')">📷 Camera Scan</div>
+      <div class="tab" onclick="switchTab(this,'scan-manual')">⌨️ Manual Entry</div>
+      <div class="tab" onclick="switchTab(this,'scan-result')">📋 Last Result</div>
+    </div>
+
+    <div class="tab-panel active" id="scan-cam">
+      <div style="max-width:600px;margin:0 auto">
+        <div class="scanner-view" id="scannerBox">
+          <div class="scan-frame">
+            <div class="scan-frame-tr"></div>
+            <div class="scan-frame-bl"></div>
+          </div>
+          <div class="scan-line"></div>
+          <div class="scanner-pulse" style="background:rgba(19,136,8,0.12)">
+            <div style="font-size:2rem">📷</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:1.25rem">
+          <div style="font-size:0.875rem;color:var(--gray-500);margin-bottom:1rem">Point camera at the medicine barcode or QR code</div>
+          <button class="btn btn-primary btn-md" onclick="simulateScan()">Simulate Scan Demo</button>
+          <div style="font-size:0.75rem;color:var(--gray-400);margin-top:0.5rem">(Camera integration requires a real device)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="scan-manual">
+      <div style="max-width:500px">
+        <div class="form-group">
+          <label class="form-label">Medicine Name or Barcode</label>
+          <input type="text" class="form-input" id="medSearch" placeholder="e.g. Metformin 500mg or barcode number" onkeydown="if(event.key==='Enter')searchMedicine()"/>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+          <span style="font-size:0.78rem;color:var(--gray-500)">Quick search:</span>
+          <span class="symptom-tag" onclick="quickSearch('Metformin 500mg')">Metformin 500mg</span>
+          <span class="symptom-tag" onclick="quickSearch('Aspirin 75mg')">Aspirin 75mg</span>
+          <span class="symptom-tag" onclick="quickSearch('Amoxicillin 500mg')">Amoxicillin 500mg</span>
+          <span class="symptom-tag" onclick="quickSearch('Paracetamol 650mg')">Paracetamol 650mg</span>
+        </div>
+        <button class="btn btn-primary btn-md" onclick="searchMedicine()" id="scanSearchBtn">Search Medicine</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="scan-result">
+      <div id="scanResultContent">
+        <div style="text-align:center;padding:3rem;color:var(--gray-400)">
+          <div style="font-size:3rem;margin-bottom:1rem">💊</div>
+          <div style="font-size:1rem;font-weight:500;color:var(--gray-600)">No scan results yet</div>
+          <div style="font-size:0.875rem;margin-top:0.5rem">Scan a medicine or use the search to see detailed information</div>
+          <button class="btn btn-primary btn-md" style="margin-top:1.25rem" onclick="simulateScan()">Scan Demo Medicine</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI DOCTOR VIEW -->
+  <div class="view page-content" id="view-aidoctor">
+    <div class="page-header">
+      <h1 class="page-title">AI Doctor</h1>
+      <div class="page-subtitle">AI-powered symptom analysis, report interpretation, and doctor recommendations</div>
+    </div>
+
+    <div class="disclaimer" style="margin-bottom:1.5rem">
+      <span class="disclaimer-icon">⚕️</span>
+      <span><strong>Important:</strong> This is for informational purposes only and is not a substitute for professional medical advice. In case of emergency, call 112 immediately.</span>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab(this,'ai-symptoms')">🩺 Symptom Checker</div>
+      <div class="tab" onclick="switchTab(this,'ai-reports')">📄 Report Analyser</div>
+      <div class="tab" onclick="switchTab(this,'ai-doctors')">👨‍⚕️ Find Doctors</div>
+    </div>
+
+    <div class="tab-panel active" id="ai-symptoms">
+      <div class="grid-2">
+        <div>
+          <div class="card" style="margin-bottom:1.25rem">
+            <div class="card-title">Select Symptoms</div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem" id="symptomTags">
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Headache</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Fever</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Fatigue</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Nausea</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Chest pain</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Shortness of breath</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Cough</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Sore throat</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Body ache</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Dizziness</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Abdominal pain</span>
+              <span class="symptom-tag" onclick="toggleSymptom(this)">Back pain</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Describe additional symptoms</label>
+              <textarea class="form-input" placeholder="Describe your symptoms in detail…" id="sympDesc"></textarea>
+            </div>
+            <div class="grid-2" style="gap:1rem">
+              <div class="form-group">
+                <label class="form-label">Duration (days)</label>
+                <input type="number" class="form-input" value="3" min="1" max="365" id="sympDuration"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Age</label>
+                <input type="number" class="form-input" value="35" id="sympAge"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Severity (1 = mild, 10 = severe)</label>
+              <div style="display:flex;align-items:center;gap:1rem">
+                <input type="range" class="severity-slider" min="1" max="10" value="5" id="severitySlider" oninput="document.getElementById('sevVal').textContent=this.value"/>
+                <span style="font-family:'Space Grotesk';font-size:1.1rem;font-weight:700;color:var(--saffron);min-width:24px;text-align:center" id="sevVal">5</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-lg" style="width:100%" onclick="analyseSymptoms()">Analyse Symptoms →</button>
+          </div>
+        </div>
+
+        <div id="sympResults">
+          <div style="text-align:center;padding:3rem;color:var(--gray-400)">
+            <div style="font-size:3rem;margin-bottom:1rem">🩺</div>
+            <div style="font-size:1rem;font-weight:500;color:var(--gray-600)">Select symptoms and click Analyse</div>
+            <div style="font-size:0.875rem;margin-top:0.5rem">Our AI will provide preliminary condition analysis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="ai-reports">
+      <div class="grid-2">
+        <div>
+          <div class="upload-zone" id="uploadZone" onclick="simulateUpload()">
+            <div class="upload-icon">📄</div>
+            <div style="font-size:1rem;font-weight:600;color:var(--gray-700);margin-bottom:0.5rem">Drop your report here</div>
+            <div style="font-size:0.875rem;color:var(--gray-500);margin-bottom:1rem">PDF, JPG, PNG — max 10MB</div>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();simulateUpload()">Choose File</button>
+          </div>
+        </div>
+        <div id="reportAnalysis">
+          <div style="text-align:center;padding:3rem;color:var(--gray-400)">
+            <div style="font-size:3rem;margin-bottom:1rem">🔬</div>
+            <div style="font-size:1rem;font-weight:500;color:var(--gray-600)">Upload a medical report</div>
+            <div style="font-size:0.875rem;margin-top:0.5rem">AI will analyse and explain all values in plain language</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="ai-doctors">
+      <div style="display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap">
+        <select class="form-input" style="flex:1;min-width:140px">
+          <option>All Specialities</option>
+          <option>Cardiologist</option>
+          <option>Endocrinologist</option>
+          <option>Neurologist</option>
+          <option>General Physician</option>
+        </select>
+        <select class="form-input" style="flex:1;min-width:120px">
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Bengaluru</option>
+          <option>Chennai</option>
+        </select>
+        <input type="text" class="form-input" placeholder="Search doctors…" style="flex:2;min-width:160px"/>
+        <button class="btn btn-primary btn-md">Search</button>
+      </div>
+      <div class="grid-2">
+        <div class="card" style="display:flex;gap:1rem;align-items:flex-start">
+          <div class="avatar" style="width:52px;height:52px;font-size:1rem;border-radius:14px;flex-shrink:0">RM</div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div><div style="font-weight:700;color:var(--gray-900)">Dr. Rajesh Mehta</div><div style="font-size:0.8rem;color:var(--gray-500)">Cardiologist · Fortis Hospital</div></div>
+              <div class="badge badge-success">Available today</div>
+            </div>
+            <div style="font-size:0.8rem;color:var(--warning);margin:0.375rem 0">★★★★★ <span style="color:var(--gray-500)">(4.9 · 312 reviews)</span></div>
+            <div style="font-size:0.78rem;color:var(--gray-600);margin-bottom:0.75rem">Specialises in interventional cardiology, heart failure management, and preventive cardiology with 18 years experience.</div>
+            <button class="btn btn-primary btn-sm" onclick="openBookModal()">Book Appointment</button>
+          </div>
+        </div>
+        <div class="card" style="display:flex;gap:1rem;align-items:flex-start">
+          <div class="avatar" style="width:52px;height:52px;font-size:1rem;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,#8b5cf6,#6d28d9)">SR</div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div><div style="font-weight:700;color:var(--gray-900)">Dr. Sunita Rao</div><div style="font-size:0.8rem;color:var(--gray-500)">Endocrinologist · Apollo Hospital</div></div>
+              <div class="badge badge-info">Next: Tomorrow</div>
+            </div>
+            <div style="font-size:0.8rem;color:var(--warning);margin:0.375rem 0">★★★★★ <span style="color:var(--gray-500)">(4.8 · 241 reviews)</span></div>
+            <div style="font-size:0.78rem;color:var(--gray-600);margin-bottom:0.75rem">Diabetes management, thyroid disorders, hormonal imbalances. 15 years in endocrinology. Former AIIMS faculty.</div>
+            <button class="btn btn-primary btn-sm" onclick="openBookModal()">Book Appointment</button>
+          </div>
+        </div>
+        <div class="card" style="display:flex;gap:1rem;align-items:flex-start">
+          <div class="avatar" style="width:52px;height:52px;font-size:1rem;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,#10b981,#059669)">PK</div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div><div style="font-weight:700;color:var(--gray-900)">Dr. Priya Kapoor</div><div style="font-size:0.8rem;color:var(--gray-500)">Neurologist · Nanavati Hospital</div></div>
+              <div class="badge badge-success">Available today</div>
+            </div>
+            <div style="font-size:0.8rem;color:var(--warning);margin:0.375rem 0">★★★★½ <span style="color:var(--gray-500)">(4.7 · 189 reviews)</span></div>
+            <div style="font-size:0.78rem;color:var(--gray-600);margin-bottom:0.75rem">Migraine, epilepsy, movement disorders. Fellowship from NIMHANS Bengaluru. Expert in neuro-rehabilitation.</div>
+            <button class="btn btn-primary btn-sm" onclick="openBookModal()">Book Appointment</button>
+          </div>
+        </div>
+        <div class="card" style="display:flex;gap:1rem;align-items:flex-start">
+          <div class="avatar" style="width:52px;height:52px;font-size:1rem;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,#f59e0b,#d97706)">AJ</div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div><div style="font-weight:700;color:var(--gray-900)">Dr. Amit Joshi</div><div style="font-size:0.8rem;color:var(--gray-500)">General Physician · Kokilaben Hospital</div></div>
+              <div class="badge badge-success">Available today</div>
+            </div>
+            <div style="font-size:0.8rem;color:var(--warning);margin:0.375rem 0">★★★★★ <span style="color:var(--gray-500)">(4.9 · 508 reviews)</span></div>
+            <div style="font-size:0.78rem;color:var(--gray-600);margin-bottom:0.75rem">Comprehensive primary care, preventive medicine, chronic disease management. Highly rated for patient communication.</div>
+            <button class="btn btn-primary btn-sm" onclick="openBookModal()">Book Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCKCHAIN EXPLORER -->
+  <div class="view page-content" id="view-blockchain">
+    <div class="page-header">
+      <h1 class="page-title">Blockchain Explorer</h1>
+      <div class="page-subtitle">Immutable audit trail of all your health records on Polygon blockchain</div>
+    </div>
+    <div class="grid-4" style="margin-bottom:1.5rem">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(19,136,8,0.1)">🔗</div>
+        <div class="stat-value">47</div>
+        <div class="stat-label">Total Records</div>
+        <div class="stat-delta up">↑ 3 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(16,185,129,0.1)">✅</div>
+        <div class="stat-value">47</div>
+        <div class="stat-label">Verified On-chain</div>
+        <div class="stat-delta up">100% integrity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(59,130,246,0.1)">⛓️</div>
+        <div class="stat-value" style="font-size:1.25rem">Polygon</div>
+        <div class="stat-label">Network</div>
+        <div class="stat-delta up">Mumbai testnet</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(245,158,11,0.1)">⛽</div>
+        <div class="stat-value">0.012</div>
+        <div class="stat-label">Avg Gas (MATIC)</div>
+        <div class="stat-delta up">↓ -8% vs last month</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Action</th><th>TX Hash</th><th>Block</th><th>Date</th><th>Gas</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><span style="display:flex;align-items:center;gap:0.5rem">📋 <span>Report uploaded</span></span></td><td><span class="tx-hash" onclick="showVerifyModal('0x7f3a...b91c')">0x7f3a...b91c</span></td><td style="font-family:monospace;font-size:0.8rem">#4,821,093</td><td style="font-size:0.8rem">Dec 11, 2024</td><td style="font-size:0.8rem">0.0089 MATIC</td><td><span class="verified-badge">✓ Confirmed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showVerifyModal('0x7f3a...b91c')">Verify</button></td></tr>
+          <tr><td><span style="display:flex;align-items:center;gap:0.5rem">💊 <span>Medicine scan</span></span></td><td><span class="tx-hash" onclick="showVerifyModal('0x2c9e...f44a')">0x2c9e...f44a</span></td><td style="font-family:monospace;font-size:0.8rem">#4,820,891</td><td style="font-size:0.8rem">Dec 9, 2024</td><td style="font-size:0.8rem">0.0042 MATIC</td><td><span class="verified-badge">✓ Confirmed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showVerifyModal('0x2c9e...f44a')">Verify</button></td></tr>
+          <tr><td><span style="display:flex;align-items:center;gap:0.5rem">🤖 <span>AI diagnosis</span></span></td><td><span class="tx-hash" onclick="showVerifyModal('0xd45b...772f')">0xd45b...772f</span></td><td style="font-family:monospace;font-size:0.8rem">#4,820,744</td><td style="font-size:0.8rem">Dec 8, 2024</td><td style="font-size:0.8rem">0.0063 MATIC</td><td><span class="verified-badge">✓ Confirmed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showVerifyModal('0xd45b...772f')">Verify</button></td></tr>
+          <tr><td><span style="display:flex;align-items:center;gap:0.5rem">💉 <span>Prescription issued</span></span></td><td><span class="tx-hash" onclick="showVerifyModal('0xa1f2...33e8')">0xa1f2...33e8</span></td><td style="font-family:monospace;font-size:0.8rem">#4,819,003</td><td style="font-size:0.8rem">Dec 6, 2024</td><td style="font-size:0.8rem">0.0121 MATIC</td><td><span class="verified-badge">✓ Confirmed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showVerifyModal('0xa1f2...33e8')">Verify</button></td></tr>
+          <tr><td><span style="display:flex;align-items:center;gap:0.5rem">📋 <span>Consent granted</span></span></td><td><span class="tx-hash" onclick="showVerifyModal('0x55dd...c22b')">0x55dd...c22b</span></td><td style="font-family:monospace;font-size:0.8rem">#4,817,450</td><td style="font-size:0.8rem">Dec 4, 2024</td><td style="font-size:0.8rem">0.0038 MATIC</td><td><span class="verified-badge">✓ Confirmed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showVerifyModal('0x55dd...c22b')">Verify</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="view page-content" id="view-admin">
+    <div class="page-header">
+      <h1 class="page-title">Admin Panel</h1>
+      <div class="page-subtitle">System overview, user management, and platform monitoring</div>
+    </div>
+    <div class="grid-4" style="margin-bottom:1.5rem">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(59,130,246,0.1)">👥</div>
+        <div class="stat-value" id="adminUsers">0</div>
+        <div class="stat-label">Total Users</div>
+        <div class="stat-delta up">↑ +124 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(19,136,8,0.1)">💊</div>
+        <div class="stat-value" id="adminScans">0</div>
+        <div class="stat-label">Scans Today</div>
+        <div class="stat-delta up">↑ +18% vs yesterday</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(255,107,53,0.1)">🤖</div>
+        <div class="stat-value" id="adminAI">0</div>
+        <div class="stat-label">AI Queries Today</div>
+        <div class="stat-delta up">↑ +31% vs yesterday</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(245,158,11,0.1)">⛓️</div>
+        <div class="stat-value" id="adminTx">0</div>
+        <div class="stat-label">Blockchain TXs</div>
+        <div class="stat-delta up">↑ all confirmed</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:1.25rem">
+      <div class="card">
+        <div class="card-title">User Scan Activity (7 days)</div>
+        <div class="mini-chart" id="miniChart">
+          <div class="mini-bar" style="height:45%"></div>
+          <div class="mini-bar" style="height:60%"></div>
+          <div class="mini-bar" style="height:40%"></div>
+          <div class="mini-bar" style="height:80%"></div>
+          <div class="mini-bar" style="height:65%"></div>
+          <div class="mini-bar" style="height:90%"></div>
+          <div class="mini-bar" style="height:75%"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--gray-400);margin-top:0.375rem">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Doctor Verification Queue</div>
+        <div style="font-size:0.875rem;color:var(--gray-600);margin-bottom:0.875rem">3 doctors awaiting credential verification</div>
+        <div style="display:flex;flex-direction:column;gap:0.625rem">
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.625rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.7rem">NK</div>
+            <div style="flex:1"><div style="font-size:0.84rem;font-weight:500">Dr. Nisha Kapoor</div><div style="font-size:0.75rem;color:var(--gray-500)">Dermatologist · Delhi</div></div>
+            <button class="btn btn-green btn-sm">Approve</button>
+            <button class="btn btn-danger btn-sm">Reject</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.625rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.7rem;background:linear-gradient(135deg,#f59e0b,#d97706)">VS</div>
+            <div style="flex:1"><div style="font-size:0.84rem;font-weight:500">Dr. Vivek Shah</div><div style="font-size:0.75rem;color:var(--gray-500)">Orthopaedic · Chennai</div></div>
+            <button class="btn btn-green btn-sm">Approve</button>
+            <button class="btn btn-danger btn-sm">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        User Management
+        <input type="text" class="form-input" placeholder="Search users…" style="width:220px"/>
+      </div>
+      <div class="table-wrap" style="border:none;border-radius:0;box-shadow:none">
+        <table class="data-table">
+          <thead><tr><th>User</th><th>Role</th><th>Joined</th><th>Scans</th><th>AI Queries</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td><div style="display:flex;align-items:center;gap:0.625rem"><div class="avatar" style="width:28px;height:28px;font-size:0.65rem">AP</div><div><div style="font-size:0.84rem;font-weight:500">Arjun Patel</div><div style="font-size:0.75rem;color:var(--gray-500)">arjun@email.com</div></div></div></td><td><span class="badge badge-info">Patient</span></td><td style="font-size:0.8rem">Nov 2024</td><td style="font-size:0.84rem">47</td><td style="font-size:0.84rem">23</td><td><span class="badge badge-success">Active</span></td><td><button class="btn btn-ghost btn-sm">View</button></td></tr>
+            <tr><td><div style="display:flex;align-items:center;gap:0.625rem"><div class="avatar" style="width:28px;height:28px;font-size:0.65rem;background:linear-gradient(135deg,#0ea5e9,#0284c7)">RM</div><div><div style="font-size:0.84rem;font-weight:500">Dr. Rajesh Mehta</div><div style="font-size:0.75rem;color:var(--gray-500)">rajesh@fortis.in</div></div></div></td><td><span class="badge badge-saffron">Doctor</span></td><td style="font-size:0.8rem">Oct 2024</td><td style="font-size:0.84rem">—</td><td style="font-size:0.84rem">8</td><td><span class="badge badge-success">Verified</span></td><td><button class="btn btn-ghost btn-sm">View</button></td></tr>
+            <tr><td><div style="display:flex;align-items:center;gap:0.625rem"><div class="avatar" style="width:28px;height:28px;font-size:0.65rem;background:linear-gradient(135deg,#ef4444,#dc2626)">PH</div><div><div style="font-size:0.84rem;font-weight:500">Pradeep Haldar</div><div style="font-size:0.75rem;color:var(--gray-500)">pharma@medsup.com</div></div></div></td><td><span class="badge badge-green">Pharmacist</span></td><td style="font-size:0.8rem">Dec 2024</td><td style="font-size:0.84rem">312</td><td style="font-size:0.84rem">5</td><td><span class="badge badge-warning">Pending</span></td><td><button class="btn btn-ghost btn-sm">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:0.875rem">🚨 Fraud & Anomaly Alerts</div>
+      <div style="display:flex;flex-direction:column;gap:0.625rem">
+        <div class="notif-card" style="border-left:3px solid var(--danger)">
+          <div style="font-size:1.25rem">⚠️</div>
+          <div style="flex:1"><div style="font-size:0.875rem;font-weight:600;color:var(--gray-900)">Suspicious scan activity detected</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">User ID #4421 performed 847 medicine scans in 2 hours from a single IP — possible API abuse.</div></div>
+          <div style="display:flex;gap:0.375rem;flex-shrink:0">
+            <button class="btn btn-danger btn-sm">Suspend</button>
+            <button class="btn btn-ghost btn-sm">Dismiss</button>
+          </div>
+        </div>
+        <div class="notif-card" style="border-left:3px solid var(--warning)">
+          <div style="font-size:1.25rem">🔐</div>
+          <div style="flex:1"><div style="font-size:0.875rem;font-weight:600;color:var(--gray-900)">Multiple failed logins</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">14 failed login attempts on account user@test.com from 3 different IPs. Account auto-locked.</div></div>
+          <div style="display:flex;gap:0.375rem;flex-shrink:0">
+            <button class="btn btn-secondary btn-sm">Unlock</button>
+            <button class="btn btn-ghost btn-sm">Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORTS -->
+  <div class="view page-content" id="view-reports">
+    <div class="page-header">
+      <h1 class="page-title">Health Reports</h1>
+      <div class="page-subtitle">Upload and manage your medical reports — stored securely on IPFS with blockchain verification</div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="upload-zone" onclick="simulateUpload()">
+          <div class="upload-icon">📤</div>
+          <div style="font-size:1rem;font-weight:600;color:var(--gray-700);margin-bottom:0.5rem">Upload a report</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);margin-bottom:1rem">Blood reports, X-rays, MRI scans, prescriptions</div>
+          <button class="btn btn-primary btn-sm" onclick="event.stopPropagation()">Choose File</button>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Recent Reports</div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:rgba(59,130,246,0.1)">🩸</div>
+            <div class="activity-content"><div class="activity-title">Complete Blood Count (CBC)</div><div class="activity-sub">IPFS: Qm7xK...p9Nf · <span class="verified-badge" style="font-size:0.7rem;padding:1px 6px">✓ On-chain</span></div></div>
+            <div class="activity-time">Dec 9</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:rgba(139,92,246,0.1)">🫀</div>
+            <div class="activity-content"><div class="activity-title">ECG Report</div><div class="activity-sub">IPFS: Qm3Lp...k7Rq · <span class="verified-badge" style="font-size:0.7rem;padding:1px 6px">✓ On-chain</span></div></div>
+            <div class="activity-time">Nov 22</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:rgba(245,158,11,0.1)">🧪</div>
+            <div class="activity-content"><div class="activity-title">HbA1c Test</div><div class="activity-sub">IPFS: Qm9Yw...t2Mn · <span class="verified-badge" style="font-size:0.7rem;padding:1px 6px">✓ On-chain</span></div></div>
+            <div class="activity-time">Nov 10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPOINTMENTS -->
+  <div class="view page-content" id="view-appointments">
+    <div class="page-header">
+      <h1 class="page-title">Appointments</h1>
+      <div class="page-subtitle">Manage your upcoming and past doctor appointments</div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:1.25rem">
+      <button class="btn btn-primary btn-md" onclick="openBookModal()">+ Book New Appointment</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.875rem">
+      <div class="appt-card" style="border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.25rem">
+        <div class="appt-date"><div class="appt-day">14</div><div class="appt-month">Dec</div></div>
+        <div style="flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-weight:700;font-size:1rem;color:var(--gray-900)">Dr. Rajesh Mehta</div>
+              <div style="font-size:0.84rem;color:var(--gray-500)">Cardiologist · Fortis Hospital, Mumbai</div>
+            </div>
+            <div class="badge badge-success">Confirmed</div>
+          </div>
+          <div style="margin-top:0.625rem;font-size:0.84rem;color:var(--gray-600)">🕙 10:00 AM · Room 204 · In-person</div>
+          <div style="margin-top:0.5rem;font-size:0.78rem;color:var(--gray-500)">Notes: Follow-up for cardiac evaluation. Bring previous ECG reports.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.375rem;flex-shrink:0">
+          <button class="btn btn-secondary btn-sm">Reschedule</button>
+          <button class="btn btn-ghost btn-sm" style="color:var(--danger)">Cancel</button>
+        </div>
+      </div>
+      <div class="appt-card" style="border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.25rem">
+        <div class="appt-date" style="background:linear-gradient(135deg,var(--info),#1d4ed8)"><div class="appt-day">19</div><div class="appt-month">Dec</div></div>
+        <div style="flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-weight:700;font-size:1rem;color:var(--gray-900)">Dr. Sunita Rao</div>
+              <div style="font-size:0.84rem;color:var(--gray-500)">Endocrinologist · Apollo Hospital, Mumbai</div>
+            </div>
+            <div class="badge badge-warning">Pending</div>
+          </div>
+          <div style="margin-top:0.625rem;font-size:0.84rem;color:var(--gray-600)">🕞 3:30 PM · Teleconsultation</div>
+          <div style="margin-top:0.5rem;font-size:0.78rem;color:var(--gray-500)">Notes: Quarterly diabetes review. Bring HbA1c report.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.375rem;flex-shrink:0">
+          <button class="btn btn-secondary btn-sm">Reschedule</button>
+          <button class="btn btn-ghost btn-sm" style="color:var(--danger)">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESCRIPTIONS -->
+  <div class="view page-content" id="view-prescriptions">
+    <div class="page-header">
+      <h1 class="page-title">Prescriptions</h1>
+      <div class="page-subtitle">Digitally signed prescriptions stored on blockchain</div>
+    </div>
+    <div class="grid-2">
+      <div class="card card-green">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem">
+          <div>
+            <div style="font-weight:700;font-size:1rem;color:var(--gray-900)">Prescription #PR-2024-0847</div>
+            <div style="font-size:0.8rem;color:var(--gray-500);margin-top:2px">Issued by Dr. Rajesh Mehta · Dec 6, 2024</div>
+          </div>
+          <div class="verified-badge">✓ Blockchain Verified</div>
+        </div>
+        <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:0.875rem;margin-bottom:0.875rem">
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="font-weight:500;color:var(--gray-900)">Metformin 500mg</span><span style="color:var(--gray-600)">1-0-1 · 90 days</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="font-weight:500;color:var(--gray-900)">Aspirin 75mg</span><span style="color:var(--gray-600)">1-0-0 · 90 days</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="font-weight:500;color:var(--gray-900)">Atorvastatin 10mg</span><span style="color:var(--gray-600)">0-0-1 · 90 days</span></div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--gray-400)">TX: <span class="tx-hash">0xa1f2...33e8</span></div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.875rem">
+          <button class="btn btn-secondary btn-sm">Download PDF</button>
+          <button class="btn btn-ghost btn-sm">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="view page-content" id="view-settings">
+    <div class="page-header">
+      <h1 class="page-title">Settings</h1>
+      <div class="page-subtitle">Manage your account, preferences, and privacy</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Profile Information</div>
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem">
+          <div class="avatar" style="width:64px;height:64px;font-size:1.25rem;border-radius:18px">AP</div>
+          <div><div style="font-weight:700;font-size:1rem">Arjun Patel</div><div style="font-size:0.84rem;color:var(--gray-500)">arjun.patel@email.com</div><div class="badge badge-info" style="margin-top:0.375rem">Patient</div></div>
+        </div>
+        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" value="Arjun Patel"/></div>
+        <div class="form-group"><label class="form-label">Phone</label><input type="text" class="form-input" value="+91 98765 43210"/></div>
+        <div class="form-group"><label class="form-label">Date of Birth</label><input type="date" class="form-input" value="1989-06-15"/></div>
+        <button class="btn btn-primary btn-md">Save Changes</button>
+      </div>
+      <div class="card">
+        <div class="card-title">Privacy & Consent</div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div><div style="font-size:0.875rem;font-weight:500">Allow AI analysis of records</div><div style="font-size:0.78rem;color:var(--gray-500)">Let SANJEEVANI AI analyse your reports for insights</div></div>
+            <label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div><div style="font-size:0.875rem;font-weight:500">Share data with doctors</div><div style="font-size:0.78rem;color:var(--gray-500)">Allow approved doctors to view your health records</div></div>
+            <label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div><div style="font-size:0.875rem;font-weight:500">Medication reminders</div><div style="font-size:0.78rem;color:var(--gray-500)">Receive SMS and push reminders for medications</div></div>
+            <label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--gray-50);border-radius:var(--radius-md)">
+            <div><div style="font-size:0.875rem;font-weight:500">Dark mode</div><div style="font-size:0.78rem;color:var(--gray-500)">Toggle between light and dark interface</div></div>
+            <label class="toggle"><input type="checkbox" id="settingsDark" onchange="toggleDark()"/><span class="toggle-slider"></span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-content -->
+</div><!-- end app -->
+
+<!-- MODALS -->
+<div class="modal-overlay" id="verifyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">🔍 Transaction Verification</div>
+      <button class="icon-btn" onclick="closeModal('verifyModal')">✕</button>
+    </div>
+    <div id="verifyContent">
+      <div style="text-align:center;padding:1.5rem">
+        <div style="font-size:2rem;margin-bottom:0.75rem;animation:spin 1s linear infinite">⟳</div>
+        <div style="color:var(--gray-600)">Querying Polygon blockchain…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">📅 Book Appointment</div>
+      <button class="icon-btn" onclick="closeModal('bookModal')">✕</button>
+    </div>
+    <div id="bookStep1">
+      <div style="display:flex;gap:1rem;margin-bottom:1.25rem">
+        <div style="flex:1;padding:1rem;border:2px solid var(--saffron);border-radius:var(--radius-lg);cursor:pointer;background:rgba(255,107,53,0.04)">
+          <div style="font-size:1.5rem;margin-bottom:0.375rem">🏥</div>
+          <div style="font-weight:600;font-size:0.875rem">In-person</div>
+          <div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Visit the clinic</div>
+        </div>
+        <div style="flex:1;padding:1rem;border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);cursor:pointer" onclick="this.style.borderColor='var(--saffron)';this.style.background='rgba(255,107,53,0.04)';this.previousElementSibling.style.borderWidth='1.5px';this.previousElementSibling.style.borderColor='var(--gray-200)';this.previousElementSibling.style.background='transparent'">
+          <div style="font-size:1.5rem;margin-bottom:0.375rem">💻</div>
+          <div style="font-weight:600;font-size:0.875rem">Teleconsultation</div>
+          <div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px">Video call online</div>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">Preferred Date</label><input type="date" class="form-input"/></div>
+      <div class="form-group"><label class="form-label">Preferred Time</label><select class="form-input"><option>10:00 AM</option><option>11:00 AM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option></select></div>
+      <div class="form-group"><label class="form-label">Reason for visit</label><textarea class="form-input" placeholder="Briefly describe your concern…" style="min-height:72px"></textarea></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end">
+        <button class="btn btn-secondary btn-md" onclick="closeModal('bookModal')">Cancel</button>
+        <button class="btn btn-primary btn-md" onclick="confirmBooking()">Confirm Booking →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="scanResultModal">
+  <div class="modal" style="max-width:680px">
+    <div class="modal-header">
+      <div class="modal-title">💊 Medicine Details</div>
+      <button class="icon-btn" onclick="closeModal('scanResultModal')">✕</button>
+    </div>
+    <div id="scanResultModalContent"></div>
+  </div>
+</div>
+
+<!-- SOS OVERLAY -->
+<div class="sos-overlay" id="sosOverlay">
+  <div class="sos-content">
+    <div class="sos-icon">🆘</div>
+    <div class="sos-title">EMERGENCY ALERT</div>
+    <div class="sos-sub">Based on your symptoms, you may require <strong>immediate medical attention</strong>. Please call emergency services now.</div>
+    <span class="sos-number">112</span>
+    <div style="font-size:0.875rem;opacity:0.7;margin-bottom:1.5rem">National Emergency Number (India)</div>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="btn btn-lg" style="background:white;color:#dc2626;font-weight:700" onclick="window.open('tel:112')">📞 Call 112 Now</button>
+      <button class="btn btn-lg" style="background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.4)" onclick="closeSOS()">I'm Safe — Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button id="chatbot-btn" onclick="toggleChat()" title="SANJEEVANI AI Assistant">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</button>
+
+<div id="chatbot-panel">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div>
+      <div style="font-weight:700;font-size:0.9rem;color:var(--gray-900)">SANJEEVANI Assistant</div>
+      <div style="font-size:0.72rem;color:var(--success);display:flex;align-items:center;gap:4px"><span style="width:6px;height:6px;border-radius:50%;background:var(--success);display:inline-block"></span>Online</div>
+    </div>
+    <button class="icon-btn" style="margin-left:auto" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">
+      <div class="chat-bubble">Namaste! 🙏 I'm your SANJEEVANI health assistant. I can help you with medicine information, symptom guidance, appointment booking, and health queries. How can I help you today?</div>
+      <div class="chat-time">Just now</div>
+    </div>
+  </div>
+  <div class="quick-chips" id="quickChips">
+    <span class="quick-chip" onclick="sendChatMsg('How do I scan a medicine?')">Scan a medicine</span>
+    <span class="quick-chip" onclick="sendChatMsg('Check my symptoms')">Check symptoms</span>
+    <span class="quick-chip" onclick="sendChatMsg('Is my data safe?')">Data safety</span>
+  </div>
+  <div class="chat-input-area">
+    <textarea class="chat-input" id="chatInput" placeholder="Ask me anything about your health…" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatFromInput()}"></textarea>
+    <button class="btn btn-primary" style="width:36px;height:36px;padding:0;border-radius:50%;flex-shrink:0" onclick="sendChatFromInput()">→</button>
+  </div>
+</div>
+
+<script>
+// ——— APP STATE ———
+let darkMode = false;
+let sidebarCollapsed = false;
+let chatOpen = false;
+let currentView = 'dashboard';
+let selectedSymptoms = [];
+const chatResponses = {
+  'how do i scan a medicine?': 'To scan a medicine, go to the **Medicine Scanner** section from the left sidebar. You can use your phone camera to scan any barcode or QR code on the medicine packaging. Alternatively, type the medicine name in the Manual Entry tab. Results include authenticity score, side effects, interactions, and generic alternatives.',
+  'check my symptoms': 'Head to the **AI Doctor** section and select the Symptom Checker tab. Choose your symptoms from the tag list or type them in, set the duration and severity, then click Analyse. The AI will suggest possible conditions with confidence levels. Remember — always consult a real doctor for medical decisions.',
+  'is my data safe?': 'Your health data is protected with multiple layers of security: 🔐 End-to-end encryption for all data in transit and at rest, 🔗 Medical records stored on Polygon blockchain (tamper-proof), 🗄️ Reports on IPFS (decentralised, no single point of failure), and 🔑 You fully control who can access your records via our Consent Manager. SANJEEVANI never sells your data.',
+};
+
+// ——— LANDING → APP ———
+function enterApp() {
+  document.getElementById('landing').style.display='none';
+  document.getElementById('app').style.display='flex';
+  initApp();
+}
+function watchDemo() {
+  enterApp();
+  showView('scanner');
+  setTimeout(simulateScan, 800);
+}
+
+// ——— COUNTER ANIMATION ———
+function animateCounter(id, target, suffix='', prefix='') {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let current=0, step = target/60;
+  const t = setInterval(()=>{
+    current = Math.min(current+step, target);
+    el.textContent = prefix + (target>100?Math.floor(current).toLocaleString('en-IN') : Math.floor(current)) + suffix;
+    if(current>=target) clearInterval(t);
+  }, 24);
+}
+function startCounters() {
+  animateCounter('cnt1','10M+'.length>0&&1,'',)
+  setTimeout(()=>{
+    document.getElementById('cnt1').textContent='10M+';
+    document.getElementById('cnt2').textContent='5L+';
+    document.getElementById('cnt3').textContent='99.9%';
+    document.getElementById('cnt4').textContent='100%';
+  }, 1200);
+  // progressive reveal
+  ['cnt1','cnt2','cnt3','cnt4'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.style.opacity='0';
+    setTimeout(()=>{
+      el.style.transition='opacity 0.5s';
+      el.style.opacity='1';
+      const targets=['10M+','5L+','99.9%','100%'];
+      el.textContent=targets[i];
+    }, 300+i*200);
+  });
+}
+window.addEventListener('DOMContentLoaded', startCounters);
+
+// ——— INIT APP ———
+function initApp() {
+  updateClock();
+  setInterval(updateClock, 1000);
+  animateHealthMeter(78);
+  setTimeout(()=>animateAdminCounters(), 400);
+}
+
+function updateClock() {
+  const now = new Date();
+  const h = now.getHours();
+  const greeting = h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+  const el = document.getElementById('welcomeMsg');
+  if(el) el.textContent = greeting + ', Arjun 👋';
+  const cl = document.getElementById('liveClock');
+  if(cl) cl.textContent = now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' · ' + now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+}
+
+// ——— HEALTH METER ———
+function animateHealthMeter(score) {
+  const arc = document.getElementById('healthArc');
+  const num = document.getElementById('healthNum');
+  if(!arc||!num) return;
+  const maxDash = 220;
+  const target = (score/100)*maxDash;
+  let cur=0;
+  const t = setInterval(()=>{
+    cur = Math.min(cur+3, target);
+    arc.setAttribute('stroke-dasharray', cur+' 360');
+    num.textContent = Math.floor((cur/maxDash)*100);
+    if(cur>=target) clearInterval(t);
+  }, 20);
+}
+
+// ——— ADMIN COUNTERS ———
+function animateAdminCounters() {
+  function animInt(id, val) {
+    const el = document.getElementById(id);
+    if(!el) return;
+    let c=0;
+    const t = setInterval(()=>{
+      c = Math.min(c + Math.ceil(val/50), val);
+      el.textContent = c.toLocaleString('en-IN');
+      if(c>=val) clearInterval(t);
+    }, 20);
+  }
+  animInt('adminUsers', 54231);
+  animInt('adminScans', 1847);
+  animInt('adminAI', 3294);
+  animInt('adminTx', 892);
+}
+
+// ——— NAVIGATION ———
+function showView(view) {
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const el = document.getElementById('view-'+view);
+  if(el) el.classList.add('active');
+  currentView = view;
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+view+"'")) n.classList.add('active');
+  });
+  if(view==='admin') setTimeout(animateAdminCounters, 300);
+  if(view==='dashboard') { setTimeout(()=>animateHealthMeter(78),300); }
+  window.scrollTo(0,0);
+  // close mobile sidebar
+  document.getElementById('sidebar').classList.remove('mobile-open');
+}
+
+function toggleSidebar() {
+  sidebarCollapsed = !sidebarCollapsed;
+  document.getElementById('sidebar').classList.toggle('collapsed', sidebarCollapsed);
+}
+
+// ——— DARK MODE ———
+function toggleDark() {
+  darkMode = !darkMode;
+  document.documentElement.setAttribute('data-theme', darkMode?'dark':'');
+  const btn = document.getElementById('darkBtn');
+  if(btn) btn.textContent = darkMode?'☀️':'🌙';
+  const sd = document.getElementById('settingsDark');
+  if(sd) sd.checked = darkMode;
+}
+
+// ——— NOTIFICATIONS ———
+function toggleNotif() {
+  document.getElementById('notifDrop').classList.toggle('open');
+}
+document.addEventListener('click', e=>{
+  if(!e.target.closest('[onclick*="toggleNotif"]')&&!e.target.closest('#notifDrop'))
+    document.getElementById('notifDrop')?.classList.remove('open');
+});
+
+// ——— TABS ———
+function switchTab(tabEl, panelId) {
+  const parent = tabEl.closest('.view, .modal');
+  parent.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  tabEl.classList.add('active');
+  const panel = parent.querySelector('#'+panelId);
+  if(panel) panel.classList.add('active');
+}
+
+// ——— MODALS ———
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function openBookModal() { openModal('bookModal'); }
+function confirmBooking() {
+  document.getElementById('bookModal').querySelector('.modal-title').textContent='✅ Appointment Confirmed!';
+  document.getElementById('bookStep1').innerHTML='<div style="text-align:center;padding:1.5rem"><div style="font-size:3rem;margin-bottom:1rem">🎉</div><div style="font-size:1rem;font-weight:600;color:var(--gray-900);margin-bottom:0.5rem">Your appointment has been booked!</div><div style="font-size:0.875rem;color:var(--gray-500);margin-bottom:1rem">A confirmation has been sent to your registered phone number and email. The appointment has been logged on the Polygon blockchain.</div><div class="verified-badge" style="display:inline-flex;padding:0.4rem 1rem">✓ Blockchain Record Created</div><br/><br/><button class="btn btn-primary btn-md" onclick="closeModal(\'bookModal\');showView(\'appointments\')">View Appointments</button></div>';
+}
+
+// ——— SCANNER ———
+function simulateScan() {
+  showView('scanner');
+  const box = document.getElementById('scannerBox');
+  if(box){ box.style.boxShadow='0 0 0 3px var(--medgreen)'; setTimeout(()=>box.style.boxShadow='',1000); }
+  setTimeout(()=>{
+    showScanResult({
+      name:'Metformin 500mg', genericName:'Metformin Hydrochloride', manufacturer:'Sun Pharmaceutical Industries Ltd',
+      riskLevel:'LOW', authenticityScore:98,
+      usage:'Management of type 2 diabetes mellitus. Reduces blood glucose by decreasing hepatic glucose production and improving insulin sensitivity.',
+      diseases:['Type 2 Diabetes Mellitus','Polycystic Ovary Syndrome (PCOS)','Pre-diabetes'],
+      dosage:{adult:'500mg twice daily with meals (max 2550mg/day)', child:'Not recommended under 10 years', elderly:'Start at 500mg once daily; adjust based on renal function'},
+      sideEffects:{common:['Nausea','Diarrhoea','Stomach upset','Metallic taste'],serious:['Lactic acidosis (rare)','Vitamin B12 deficiency'],rare:['Megaloblastic anaemia']},
+      precautions:['Avoid in renal impairment (eGFR < 30)','Withhold before iodinated contrast procedures','Monitor renal function every 6 months'],
+      alternatives:['Glipizide 5mg (generic)','Sitagliptin 100mg','Vildagliptin 50mg'],
+      txHash:'0x2c9e...f44a', blockNumber:'#4,820,891',
+      storageInfo:'Store below 25°C in a dry place. Keep away from children.',
+      requiresPrescription:true
+    });
+  }, 600);
+}
+function quickSearch(name) {
+  document.getElementById('medSearch').value = name;
+  searchMedicine();
+}
+function searchMedicine() {
+  const btn = document.getElementById('scanSearchBtn');
+  if(btn){ btn.classList.add('btn-loading'); btn.textContent='Searching…'; }
+  setTimeout(()=>{
+    if(btn){ btn.classList.remove('btn-loading'); btn.textContent='Search Medicine'; }
+    simulateScan();
+  }, 1200);
+}
+function showScanResult(data) {
+  const riskClass = {'LOW':'risk-low','MEDIUM':'risk-medium','HIGH':'risk-high'}[data.riskLevel];
+  const html=`
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap">
+      <div>
+        <h2 style="font-family:'Space Grotesk';font-size:1.35rem;font-weight:700;color:var(--gray-900);margin-bottom:0.25rem">${data.name}</h2>
+        <div style="font-size:0.84rem;color:var(--gray-500)">${data.genericName} · ${data.manufacturer}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.375rem">
+        <div class="badge ${riskClass}" style="font-size:0.8rem;padding:0.3rem 0.875rem">Risk: ${data.riskLevel}</div>
+        <div style="font-size:0.78rem;color:var(--gray-500)">Authenticity: <strong style="color:var(--medgreen)">${data.authenticityScore}/100</strong></div>
+      </div>
+    </div>
+    <div class="progress-bar" style="margin-bottom:1.25rem"><div class="progress-fill" style="width:${data.authenticityScore}%"></div></div>
+    <div class="tabs" style="margin-top:0">
+      <div class="tab active" onclick="switchTab(this,'mr-overview')">Overview</div>
+      <div class="tab" onclick="switchTab(this,'mr-safety')">Safety</div>
+      <div class="tab" onclick="switchTab(this,'mr-alt')">Alternatives</div>
+    </div>
+    <div class="tab-panel active" id="mr-overview">
+      <div style="margin-bottom:0.875rem"><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.375rem">Usage</div><div style="font-size:0.875rem;color:var(--gray-700);line-height:1.6">${data.usage}</div></div>
+      <div style="margin-bottom:0.875rem"><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.375rem">Conditions Treated</div><div style="display:flex;flex-wrap:wrap;gap:0.375rem">${data.diseases.map(d=>`<span class="badge badge-info">${d}</span>`).join('')}</div></div>
+      <div><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem">Dosage</div>
+        <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:0.75rem;font-size:0.84rem">
+          <div style="margin-bottom:0.375rem"><strong>Adults:</strong> ${data.dosage.adult}</div>
+          <div style="margin-bottom:0.375rem"><strong>Elderly:</strong> ${data.dosage.elderly}</div>
+          <div><strong>Children:</strong> ${data.dosage.child}</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="mr-safety">
+      <div style="margin-bottom:0.875rem"><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.375rem">Common Side Effects</div><div style="display:flex;flex-wrap:wrap;gap:0.375rem">${data.sideEffects.common.map(s=>`<span class="badge badge-warning">${s}</span>`).join('')}</div></div>
+      <div style="margin-bottom:0.875rem"><div style="font-size:0.78rem;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.375rem">Serious / Rare Effects</div><div style="display:flex;flex-wrap:wrap;gap:0.375rem">${[...data.sideEffects.serious,...data.sideEffects.rare].map(s=>`<span class="badge badge-danger">${s}</span>`).join('')}</div></div>
+      <div><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.375rem">Precautions</div><ul style="padding-left:1.25rem;font-size:0.84rem;color:var(--gray-700);line-height:1.8">${data.precautions.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+    </div>
+    <div class="tab-panel" id="mr-alt">
+      <div style="font-size:0.84rem;color:var(--gray-600);margin-bottom:0.875rem">Generic and alternative medicines that may serve similar purposes:</div>
+      ${data.alternatives.map(a=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem;border:1px solid var(--gray-200);border-radius:var(--radius-md);margin-bottom:0.5rem"><span style="font-size:0.875rem;font-weight:500">${a}</span><button class="btn btn-secondary btn-sm" onclick="quickSearch('${a.split(' ')[0]}')">View Details</button></div>`).join('')}
+    </div>
+    <div style="margin-top:1rem;padding:0.875rem;background:rgba(19,136,8,0.06);border-radius:var(--radius-md);border:1px solid rgba(19,136,8,0.15)">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem">
+        <div><div style="font-size:0.78rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em">Blockchain Record</div><div class="tx-hash" style="margin-top:4px">${data.txHash}</div></div>
+        <div><div class="verified-badge">✓ Verified · Block ${data.blockNumber}</div></div>
+      </div>
+    </div>
+    <div class="disclaimer" style="margin-top:0.875rem"><span class="disclaimer-icon">ℹ️</span><span>This is for informational purposes only and is not a substitute for professional medical advice.</span></div>
+    <div style="display:flex;gap:0.625rem;margin-top:1rem;flex-wrap:wrap">
+      <button class="btn btn-primary btn-sm">Save to Profile</button>
+      <button class="btn btn-secondary btn-sm" onclick="speakResult('${data.name} is a ${data.riskLevel.toLowerCase()} risk medicine used for ${data.diseases[0]}. ${data.usage.split('.')[0]}.')">🔊 Voice Explanation</button>
+      <button class="btn btn-ghost btn-sm">Share</button>
+    </div>`;
+  // Update tab panel and show modal
+  const contentEl = document.getElementById('scanResultContent');
+  if(contentEl){ contentEl.innerHTML=html; }
+  const modalContent = document.getElementById('scanResultModalContent');
+  if(modalContent){ modalContent.innerHTML=html; openModal('scanResultModal'); }
+  // Also activate result tab
+  const scanTabs = document.querySelectorAll('#view-scanner .tab');
+  const scanPanels = document.querySelectorAll('#view-scanner .tab-panel');
+  if(scanTabs[2]&&scanPanels[2]){ scanTabs.forEach(t=>t.classList.remove('active')); scanPanels.forEach(p=>p.classList.remove('active')); scanTabs[2].classList.add('active'); scanPanels[2].classList.add('active'); }
+}
+function speakResult(text) {
+  if(window.speechSynthesis){ const u=new SpeechSynthesisUtterance(text); u.lang='en-IN'; speechSynthesis.speak(u); }
+}
+
+// ——— AI DOCTOR ———
+function toggleSymptom(el) {
+  el.classList.toggle('selected');
+  const name = el.textContent.replace('✕','').trim();
+  if(el.classList.contains('selected')) { selectedSymptoms.push(name); } else { selectedSymptoms=selectedSymptoms.filter(s=>s!==name); }
+}
+function analyseSymptoms() {
+  const resultsEl = document.getElementById('sympResults');
+  if(!resultsEl) return;
+  const syms = selectedSymptoms.length>0 ? selectedSymptoms : ['Headache','Fever'];
+  const severity = parseInt(document.getElementById('severitySlider')?.value||5);
+  resultsEl.innerHTML=`<div style="text-align:center;padding:2rem;color:var(--gray-500)"><div style="font-size:2rem;animation:spin 1s linear infinite;display:inline-block">⟳</div><div style="margin-top:0.75rem;font-size:0.875rem">Analysing ${syms.length} symptom(s)…</div></div>`;
+  const isEmergency = syms.includes('Chest pain') && severity>=7;
+  setTimeout(()=>{
+    if(isEmergency){ document.getElementById('sosOverlay').classList.add('active'); return; }
+    const conditions = [
+      {name:'Viral Upper Respiratory Tract Infection', confidence:78, urgency:'ROUTINE', desc:'Common cold or flu. Usually self-limiting. Rest, fluids, and over-the-counter medication typically sufficient.'},
+      {name:'Tension Headache', confidence:62, urgency:'ROUTINE', desc:'Stress or tension-related headache. Common and manageable with analgesics and rest.'},
+      {name:'Dengue Fever', confidence:31, urgency:'SOON', desc:'Should be ruled out if symptoms persist beyond 3-4 days, especially with severe headache and body ache.'},
+    ];
+    resultsEl.innerHTML=`
+      <div class="card">
+        <div class="card-title" style="display:flex;justify-content:space-between">Analysis Results <span class="badge badge-saffron">${syms.join(', ').substring(0,30)}…</span></div>
+        ${conditions.map(c=>{
+          const urgencyClass = c.urgency==='EMERGENCY'?'badge-danger':c.urgency==='SOON'?'badge-warning':'badge-success';
+          const fillColor = c.confidence>70?'var(--medgreen)':c.confidence>50?'var(--warning)':'var(--info)';
+          return `<div class="condition-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.375rem">
+              <div style="font-weight:600;font-size:0.9rem;color:var(--gray-900)">${c.name}</div>
+              <span class="badge ${urgencyClass}">${c.urgency}</span>
+            </div>
+            <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:0.5rem">${c.desc}</div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <div class="confidence-bar" style="flex:1"><div class="confidence-fill" style="width:${c.confidence}%;background:${fillColor}"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:${fillColor};min-width:32px">${c.confidence}%</span>
+            </div>
+          </div>`;
+        }).join('')}
+        <div style="margin-top:0.875rem;padding:0.875rem;background:var(--gray-50);border-radius:var(--radius-md)">
+          <div style="font-size:0.78rem;font-weight:700;color:var(--gray-700);margin-bottom:0.375rem">Recommended Specialists</div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap"><span class="badge badge-info">General Physician</span><span class="badge badge-info">Internist</span></div>
+        </div>
+        <div class="disclaimer" style="margin-top:0.875rem"><span class="disclaimer-icon">ℹ️</span><span>This is for informational purposes only and is not a substitute for professional medical advice.</span></div>
+      </div>`;
+  }, 1800);
+}
+function closeSOS() { document.getElementById('sosOverlay').classList.remove('active'); }
+
+// ——— REPORT UPLOAD SIMULATION ———
+function simulateUpload() {
+  const uploadZone = document.getElementById('uploadZone');
+  if(uploadZone){ uploadZone.innerHTML='<div class="upload-icon" style="animation:spin 1s linear infinite">⟳</div><div style="font-size:0.875rem;color:var(--gray-600)">Uploading to IPFS…</div>'; }
+  setTimeout(()=>{
+    const reportEl = document.getElementById('reportAnalysis');
+    if(reportEl) reportEl.innerHTML=`
+      <div class="card">
+        <div class="card-title" style="display:flex;justify-content:space-between">AI Report Analysis <span class="verified-badge">✓ On IPFS</span></div>
+        <div style="font-size:0.84rem;color:var(--gray-500);margin-bottom:0.875rem">Complete Blood Count (CBC) · Uploaded Dec 11, 2024</div>
+        <div style="display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0.625rem 0.875rem;border-radius:var(--radius-md);background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15)">
+            <div><div style="font-size:0.84rem;font-weight:500">Haemoglobin (Hb)</div><div style="font-size:0.75rem;color:var(--gray-500)">Normal: 13–17 g/dL</div></div>
+            <div style="text-align:right"><div style="font-weight:700;color:var(--success)">14.8 g/dL</div><span class="badge badge-success">Normal</span></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0.625rem 0.875rem;border-radius:var(--radius-md);background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)">
+            <div><div style="font-size:0.84rem;font-weight:500">Fasting Blood Sugar</div><div style="font-size:0.75rem;color:var(--gray-500)">Normal: 70–99 mg/dL</div></div>
+            <div style="text-align:right"><div style="font-weight:700;color:var(--danger)">127 mg/dL</div><span class="badge badge-danger">High</span></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0.625rem 0.875rem;border-radius:var(--radius-md);background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15)">
+            <div><div style="font-size:0.84rem;font-weight:500">HbA1c</div><div style="font-size:0.75rem;color:var(--gray-500)">Normal: < 5.7%</div></div>
+            <div style="text-align:right"><div style="font-weight:700;color:var(--warning)">6.2%</div><span class="badge badge-warning">Pre-diabetic</span></div>
+          </div>
+        </div>
+        <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:0.875rem;font-size:0.84rem;color:var(--gray-700);line-height:1.65;margin-bottom:0.875rem"><strong>AI Summary:</strong> Your blood work shows elevated fasting blood sugar and HbA1c values in the pre-diabetic range. This warrants close monitoring and lifestyle modification. Your haemoglobin is normal. Consult your endocrinologist for a comprehensive diabetes management plan.</div>
+        <div class="disclaimer"><span class="disclaimer-icon">ℹ️</span><span>This is for informational purposes only and is not a substitute for professional medical advice.</span></div>
+        <div style="display:flex;gap:0.625rem;margin-top:0.875rem"><button class="btn btn-primary btn-sm">Download Summary PDF</button><button class="btn btn-secondary btn-sm">Book Endocrinologist</button></div>
+      </div>`;
+    if(uploadZone){ uploadZone.innerHTML='<div class="upload-icon">✅</div><div style="font-size:0.875rem;color:var(--success);font-weight:600">Report uploaded successfully</div><div style="font-size:0.78rem;color:var(--gray-500);margin-top:0.25rem">IPFS CID: QmBlood...ReportXYZ</div>'; }
+  }, 2000);
+}
+
+// ——— VERIFY MODAL ———
+function showVerifyModal(hash) {
+  openModal('verifyModal');
+  document.getElementById('verifyContent').innerHTML=`<div style="text-align:center;padding:1.5rem"><div style="font-size:2rem;animation:spin 1s linear infinite;display:inline-block">⟳</div><div style="color:var(--gray-600);margin-top:0.75rem">Querying Polygon blockchain…</div></div>`;
+  setTimeout(()=>{
+    document.getElementById('verifyContent').innerHTML=`
+      <div style="text-align:center;margin-bottom:1.25rem">
+        <div style="font-size:3rem;animation:none">✅</div>
+        <div style="font-size:1.1rem;font-weight:700;color:var(--success);margin-top:0.5rem">Transaction Confirmed</div>
+      </div>
+      <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:1rem;font-size:0.84rem">
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-200)"><span style="color:var(--gray-500)">TX Hash</span><span class="tx-hash">${hash}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-200)"><span style="color:var(--gray-500)">Network</span><span style="font-weight:500">Polygon Mumbai</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-200)"><span style="color:var(--gray-500)">Block</span><span style="font-weight:500">#4,821,093</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-200)"><span style="color:var(--gray-500)">Confirmations</span><span style="color:var(--success);font-weight:700">247 blocks</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0"><span style="color:var(--gray-500)">Status</span><span class="verified-badge">✓ Confirmed</span></div>
+      </div>
+      <button class="btn btn-secondary btn-md" style="width:100%;margin-top:1rem" onclick="closeModal('verifyModal')">Close</button>`;
+  }, 1600);
+}
+
+// ——— CHATBOT ———
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatbot-panel').classList.toggle('open', chatOpen);
+}
+function sendChatMsg(msg) {
+  const msgs = document.getElementById('chatMessages');
+  const chips = document.getElementById('quickChips');
+  if(chips) chips.style.display='none';
+  // User bubble
+  const now = new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  const userDiv = document.createElement('div'); userDiv.className='chat-msg user';
+  userDiv.innerHTML=`<div class="chat-bubble">${msg}</div><div class="chat-time">${now}</div>`;
+  msgs.appendChild(userDiv);
+  // Typing
+  const typingDiv = document.createElement('div'); typingDiv.className='chat-msg bot';
+  typingDiv.innerHTML='<div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  msgs.appendChild(typingDiv);
+  msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{
+    typingDiv.remove();
+    const key = msg.toLowerCase();
+    let response = chatResponses[key] || generateChatResponse(msg);
+    const botDiv = document.createElement('div'); botDiv.className='chat-msg bot';
+    botDiv.innerHTML=`<div class="chat-bubble">${response.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</div><div class="chat-time">${now}</div>`;
+    msgs.appendChild(botDiv);
+    msgs.scrollTop=msgs.scrollHeight;
+  }, 1200+Math.random()*600);
+}
+function generateChatResponse(msg) {
+  const lm = msg.toLowerCase();
+  if(lm.includes('medicine')||lm.includes('drug')||lm.includes('tablet')) return 'For medicine information, use the **Medicine Scanner** — scan the barcode or type the name. I can help identify medicines, check for interactions, and find generic alternatives. What medicine are you looking up?';
+  if(lm.includes('appointment')||lm.includes('doctor')||lm.includes('book')) return 'You can book an appointment in the **AI Doctor → Find Doctors** section. Filter by speciality and city, then choose a convenient slot. Would you like me to suggest a specialist based on your symptoms?';
+  if(lm.includes('blood')||lm.includes('report')||lm.includes('test')) return 'Upload your blood reports or medical scans in the **Health Reports** section. Our AI will analyse the values and explain any abnormalities in plain language. All reports are stored securely on IPFS with blockchain verification.';
+  if(lm.includes('emergency')||lm.includes('urgent')||lm.includes('chest pain')) return '⚠️ If you are experiencing a medical emergency, call **112** immediately. SANJEEVANI has an Emergency SOS feature — click the red emergency button in the AI Doctor section for instant help.';
+  return 'I can help with medicine information, symptom guidance, report analysis, doctor booking, and health record management. Could you tell me more about what you need? For medical emergencies, please call 112 or visit the nearest hospital immediately.';
+}
+function sendChatFromInput() {
+  const input = document.getElementById('chatInput');
+  if(!input||!input.value.trim()) return;
+  sendChatMsg(input.value.trim());
+  input.value='';
+}
+
+// Particles
+function createParticles() {
+  const container = document.getElementById('heroParticles');
+  if(!container) return;
+  const colors=['#FF6B35','#138808','#FF9933','#ffffff'];
+  for(let i=0;i<25;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const size=3+Math.random()*8;
+    p.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${8+Math.random()*12}s;animation-delay:${-Math.random()*15}s`;
+    container.appendChild(p);
+  }
+}
+createParticles();
+</script>
+</body>
+</html>
