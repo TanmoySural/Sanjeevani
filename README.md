@@ -1,6 +1,6 @@
 # Sanjeevani
 
-**In development Phrase, soon going to come!!!**
+**In development Phrase, soon going to launch**
 
 
 
